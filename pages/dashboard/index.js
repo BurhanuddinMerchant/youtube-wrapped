@@ -1,15 +1,18 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
-export default function Home() {
-  const [formData, setFormData] = useState({ username: '', password: '' })
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(formData)
+export default function DashBoard() {
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!sessionStorage.getItem('token')) {
+      router.push('/')
+    }
+  }, [])
+  const handleSignOut = () => {
+    sessionStorage.removeItem('token')
   }
   return (
     <>
@@ -22,15 +25,15 @@ export default function Home() {
         <div className="mx-auto">
           <div className=" text-center">
             <h2 className=" mx-auto cursor-pointer text-xl font-semibold text-red-400">
-              Landing Page
+              DashBoard
             </h2>
           </div>
           <Link href="/login">
             <button
-              type="submit"
               className=" mx-auto my-2 w-fit cursor-pointer  rounded-md bg-white px-2 py-1 hover:bg-red-600 hover:text-red-100"
+              onClick={handleSignOut}
             >
-              Login/SignUp
+              SignOut
             </button>
           </Link>
         </div>
