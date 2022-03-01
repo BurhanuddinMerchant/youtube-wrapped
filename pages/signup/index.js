@@ -38,7 +38,10 @@ export default function SignUp() {
       redirect: 'follow',
     }
 
-    fetch('http://localhost:8000/api/register', requestOptions)
+    fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/register`,
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => {
         result = JSON.parse(result)
@@ -101,7 +104,9 @@ export default function SignUp() {
           <p className="mx-auto my-2 text-sm">
             Already have an account?{' '}
             <Link href="/login" className="cursor-pointer text-red-400">
-              Login Here
+              <section className="inline cursor-pointer font-medium text-red-500">
+                Login Here
+              </section>
             </Link>
           </p>
           {isLoading ? (

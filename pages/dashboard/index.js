@@ -24,7 +24,10 @@ export default function DashBoard() {
         headers: myHeaders,
         redirect: 'follow',
       }
-      fetch('http://localhost:8000/api/profile', requestOptions)
+      fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/profile`,
+        requestOptions
+      )
         .then((response) => response.json())
         .then((result) => {
           setUsername(result.data.username)
@@ -37,13 +40,19 @@ export default function DashBoard() {
         setUserStats(JSON.parse(user_stats))
         setStatsAvailable(true)
       } else {
-        fetch('http://localhost:8000/api/check', requestOptions)
+        fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/check`,
+          requestOptions
+        )
           .then((response) => response.json())
           .then((result) => {
             if (result.data) {
               setStatsAvailable(result.data.status)
               if (result.data.status === true) {
-                fetch('http://localhost:8000/api/stats', requestOptions)
+                fetch(
+                  `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/test/stats`,
+                  requestOptions
+                )
                   .then((response) => response.json())
                   .then((result) => {
                     console.log(result)

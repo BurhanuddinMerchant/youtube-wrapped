@@ -34,7 +34,10 @@ export const Unwrapped = (props) => {
       redirect: 'follow',
     }
 
-    fetch('http://localhost:8000/api/generate', requestOptions)
+    fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/test/generate`,
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => {
         setLoading(false)
