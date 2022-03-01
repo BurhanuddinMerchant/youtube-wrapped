@@ -1,7 +1,7 @@
 import { InformationCircleIcon, StarIcon } from '@heroicons/react/solid'
-import { InfoModal } from './InfoModal'
+import InfoModal from './InfoModal'
 InformationCircleIcon
-export const TopThreeCard = (props) => {
+export default function TopThreeCard(props) {
   const star_color = ['text-yellow-500', 'text-gray-300', 'text-amber-600']
   const { top, title, infoDescription } = props.data
   return (

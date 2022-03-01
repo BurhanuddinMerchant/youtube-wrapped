@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { StatsSection } from './Stats'
-import { Unwrapped } from './UnWrapped'
+import StatsSection from '../../components/Stats.js'
+import Unwrapped from '../../components/UnWrapped.js'
 
 export default function DashBoard() {
   const router = useRouter()
@@ -102,7 +102,7 @@ export default function DashBoard() {
           className=" my-auto w-fit cursor-pointer  rounded-md bg-white px-2 py-1 hover:bg-red-600 hover:text-red-100"
           onClick={handleSignOut}
         >
-          <Link href="/login">SignOut</Link>{' '}
+          <Link href="/login">SignOut</Link>
         </button>
       </div>
       <>

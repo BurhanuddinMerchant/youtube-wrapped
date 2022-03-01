@@ -45,7 +45,6 @@ export default function Home() {
               <li>
                 <Link href="#">
                   <p className="cursor-pointer rounded-lg p-1 text-lg font-medium text-red-400 hover:bg-red-600 hover:text-white">
-                    {' '}
                     About
                   </p>
                 </Link>
@@ -53,7 +52,6 @@ export default function Home() {
               <li>
                 <Link href="#">
                   <p className="cursor-pointer rounded-lg p-1 text-lg font-medium text-red-400 hover:bg-red-600 hover:text-white">
-                    {' '}
                     Contact
                   </p>
                 </Link>

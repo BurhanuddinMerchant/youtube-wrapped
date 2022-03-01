@@ -1,7 +1,7 @@
-import { InformationCircleIcon, LockClosedIcon } from '@heroicons/react/solid'
+import { InformationCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 useState
-export const InfoModal = (props) => {
+export default function InfoModal(props) {
   const { title, description } = props
   const [showModal, setShowModal] = useState(false)
   return (

@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
-import { ComparisonCard } from './utils/ComparisonCard'
-import { TopThreeCard } from './utils/TopThreeCard'
-// import { ThumbDownIcon, ThumbUpIcon } from '@heroicons/react/outline'
-export const StatsSection = (props) => {
+import ComparisonCard from './ComparisonCard'
+import TopThreeCard from './TopThreeCard'
+export default function StatsSection(props) {
   const { stats } = props
   const [processedData, setProcessedData] = useState(null)
   useEffect(() => {

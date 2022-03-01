@@ -1,7 +1,7 @@
 import { ThumbDownIcon, ThumbUpIcon } from '@heroicons/react/solid'
-import { InfoModal } from './InfoModal'
+import InfoModal from './InfoModal'
 
-export const ComparisonCard = (props) => {
+export default function ComparisonCard(props) {
   const { title, liked, disliked, infoDescription } = props.data
   return (
     <div className=" my-10 w-96 rounded-md bg-slate-100 shadow-md hover:shadow-lg">

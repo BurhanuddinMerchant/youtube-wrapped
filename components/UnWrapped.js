@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import { ConditionalButton } from './utils/ConditionalButton'
-export const Unwrapped = (props) => {
+import ConditionalButton from './ConditionalButton'
+export default function Unwrapped(props) {
   const { setStatsAvailable } = props
   const router = useRouter()
   const [YTAccessToken, setYTAccessToken] = useState(null)

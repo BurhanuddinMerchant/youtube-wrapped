@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-export const useGoogle = () => {
+export default function useGoogle() {
   const router = useRouter()
   console.log(process.env.NEXT_PUBLIC_YT_API_SECRET)
   useEffect(() => {
@@ -68,4 +68,5 @@ export const useGoogle = () => {
       document.body.removeChild(script)
     }
   }, [])
+  return <></>
 }

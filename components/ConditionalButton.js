@@ -1,4 +1,4 @@
-export const ConditionalButton = (props) => {
+export default function ConditionalButton(props) {
   const { onClickFunction, proceedFunction, isLoading, doneUnWrapping } = props
   return (
     <button
