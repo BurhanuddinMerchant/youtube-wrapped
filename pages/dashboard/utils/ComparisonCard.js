@@ -1,28 +1,31 @@
-import {
-  ThumbDownIcon,
-  ThumbUpIcon,
-  InformationCircleIcon,
-} from '@heroicons/react/solid'
+import { ThumbDownIcon, ThumbUpIcon } from '@heroicons/react/solid'
+import { InfoModal } from './InfoModal'
+
 export const ComparisonCard = (props) => {
-  const { title, liked, disliked } = props.data
+  const { title, liked, disliked, infoDescription } = props.data
   return (
     <div className=" my-10 w-96 rounded-md bg-slate-100 shadow-md hover:shadow-lg">
       <div className="flex flex-row justify-between rounded-t-md bg-red-400 p-2">
-        <h1>{title}</h1>
+        <h1 className=" font-medium">{title}</h1>
         <div>
-          <InformationCircleIcon className="h-5 w-5 text-blue-200 hover:text-blue-300" />
+          <InfoModal
+            title={title}
+            description={
+              infoDescription || 'Description Not Available At the moment'
+            }
+          />
         </div>
       </div>
       <div className="my-5 flex flex-row justify-between p-2">
         <div className="flex flex-col justify-center p-2 ">
           <div>
-            <ThumbUpIcon className=" mx-auto h-5 w-5 text-green-500 " />
+            <ThumbUpIcon className=" mx-auto h-5 w-5 text-green-500 hover:animate-bounce" />
           </div>
           <div>{Number(liked.toFixed(1))}</div>
         </div>
         <div className="flex flex-col justify-center p-2">
           <div>
-            <ThumbDownIcon className="h-5 w-5  text-red-500" />
+            <ThumbDownIcon className="h-5 w-5  text-red-500 hover:animate-bounce" />
           </div>
           <div>{Number(disliked.toFixed(1))}</div>
         </div>

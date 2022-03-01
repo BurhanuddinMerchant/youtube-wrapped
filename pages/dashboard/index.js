@@ -9,6 +9,7 @@ export default function DashBoard() {
   const router = useRouter()
   const [statsAvailable, setStatsAvailable] = useState(false)
   const [userStats, setUserStats] = useState(null)
+  const [username, setUsername] = useState(null)
   useEffect(() => {
     if (!sessionStorage.getItem('token')) {
       router.push('/')
@@ -23,6 +24,14 @@ export default function DashBoard() {
         headers: myHeaders,
         redirect: 'follow',
       }
+      fetch('http://localhost:8000/api/profile', requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          setUsername(result.data.username)
+        })
+        .catch((e) => {
+          console.log(e)
+        })
       let user_stats = localStorage.getItem('userStats')
       if (user_stats) {
         setUserStats(JSON.parse(user_stats))
@@ -34,30 +43,38 @@ export default function DashBoard() {
             if (result.data) {
               setStatsAvailable(result.data.status)
               if (result.data.status === true) {
-                fetch('http://localhost:8000/api/test/stats', requestOptions)
+                fetch('http://localhost:8000/api/stats', requestOptions)
                   .then((response) => response.json())
                   .then((result) => {
+                    console.log(result)
                     setUserStats(result.data)
                     localStorage.setItem(
                       'userStats',
                       JSON.stringify(result.data)
                     )
                   })
-                  .catch((error) => console.log('error', error))
+                  .catch((error) => {
+                    console.log('error', error)
+                  })
+              } else {
               }
             } else {
               throw result
             }
           })
-          .catch((error) => console.log('error', error))
+          .catch((error) => {
+            console.log('error', error)
+          })
       }
     }
-  }, [])
+  }, [statsAvailable])
   useEffect(() => {
     console.log(userStats), [setUserStats]
   })
   const handleSignOut = () => {
     sessionStorage.removeItem('token')
+    localStorage.removeItem('userStats'),
+      sessionStorage.removeItem('yt_access_token')
   }
   return (
     <>
@@ -69,7 +86,7 @@ export default function DashBoard() {
       <div className="flex w-full flex-row justify-between bg-gray-700 p-3">
         <div className=" text-center">
           <h2 className=" mx-auto cursor-pointer text-xl font-semibold text-red-400">
-            Welcome Example User!
+            Welcome To Youtube Wrapped {username} !
           </h2>
         </div>
         <button
@@ -79,7 +96,13 @@ export default function DashBoard() {
           <Link href="/login">SignOut</Link>{' '}
         </button>
       </div>
-      {statsAvailable ? <StatsSection stats={userStats} /> : <Unwrapped />}
+      <>
+        {statsAvailable && userStats ? (
+          <StatsSection stats={userStats} />
+        ) : (
+          <Unwrapped setStatsAvailable={setStatsAvailable} />
+        )}
+      </>
     </>
   )
 }
