@@ -33,7 +33,7 @@ export default function DashBoard() {
           setUsername(result.data.username)
         })
         .catch((e) => {
-          console.log(e)
+          // console.log(e)
         })
       let user_stats = localStorage.getItem('userStats')
       if (user_stats) {
@@ -55,7 +55,6 @@ export default function DashBoard() {
                 )
                   .then((response) => response.json())
                   .then((result) => {
-                    console.log(result)
                     setUserStats(result.data)
                     localStorage.setItem(
                       'userStats',
@@ -63,7 +62,7 @@ export default function DashBoard() {
                     )
                   })
                   .catch((error) => {
-                    console.log('error', error)
+                    // console.log('error', error)
                   })
               } else {
               }
@@ -72,14 +71,12 @@ export default function DashBoard() {
             }
           })
           .catch((error) => {
-            console.log('error', error)
+            // console.log('error', error)
           })
       }
     }
   }, [statsAvailable])
-  useEffect(() => {
-    console.log(userStats), [setUserStats]
-  })
+
   const handleSignOut = () => {
     sessionStorage.removeItem('token')
     localStorage.removeItem('userStats'),

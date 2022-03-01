@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 
 export default function useGoogle() {
   const router = useRouter()
-  console.log(process.env.NEXT_PUBLIC_YT_API_SECRET)
   useEffect(() => {
     const handleClientLoad = () =>
       window.gapi.load('client:auth2', function () {
@@ -46,11 +45,8 @@ export default function useGoogle() {
         .getAuthInstance()
         .signIn({ scope: process.env.NEXT_PUBLIC_YT_OAUTH_SCOPE })
         .then(
-          function () {
-            console.log('Sign-in successful')
-          },
+          function () {},
           function (err) {
-            console.error('Error signing in', err)
             throw err
           }
         )
