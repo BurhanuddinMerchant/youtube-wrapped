@@ -50,7 +50,7 @@ export default function DashBoard() {
               setStatsAvailable(result.data.status)
               if (result.data.status === true) {
                 fetch(
-                  `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/test/stats`,
+                  `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/stats`,
                   requestOptions
                 )
                   .then((response) => response.json())

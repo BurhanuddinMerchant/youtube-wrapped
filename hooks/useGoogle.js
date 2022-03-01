@@ -32,10 +32,10 @@ export default function useGoogle() {
         .load(process.env.NEXT_PUBLIC_YT_DISCOVERY_URL)
         .then(
           function () {
-            console.log('GAPI client loaded for API')
+            // console.log('GAPI client loaded for API')
           },
           function (err) {
-            console.error('Error loading GAPI client for API', err)
+            // console.error('Error loading GAPI client for API', err)
             throw err
           }
         )

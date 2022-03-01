@@ -35,7 +35,7 @@ export default function Unwrapped(props) {
     }
 
     fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/test/generate`,
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/generate`,
       requestOptions
     )
       .then((response) => response.text())
@@ -43,11 +43,11 @@ export default function Unwrapped(props) {
         setLoading(false)
         // router.push('/dashboard')
         setDoneUnWrapping(true)
-        console.log(result)
+        // console.log(result)
       })
       .catch((error) => {
         setLoading(false)
-        console.log('error', error)
+        // console.log('error', error)
       })
   }
   return (
