@@ -10,7 +10,9 @@ export default function DashBoard() {
   const [statsAvailable, setStatsAvailable] = useState(false)
   const [userStats, setUserStats] = useState(null)
   const [username, setUsername] = useState(null)
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
+    setLoading(true)
     if (!sessionStorage.getItem('token')) {
       router.push('/')
     } else {
@@ -39,6 +41,7 @@ export default function DashBoard() {
       if (user_stats) {
         setUserStats(JSON.parse(user_stats))
         setStatsAvailable(true)
+        setLoading(false)
       } else {
         fetch(
           `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/check`,
@@ -60,17 +63,22 @@ export default function DashBoard() {
                       'userStats',
                       JSON.stringify(result.data)
                     )
+                    setLoading(false)
                   })
                   .catch((error) => {
                     // console.log('error', error)
+                    setLoading(false)
                   })
               } else {
+                setLoading(false)
               }
             } else {
+              setLoading(false)
               throw result
             }
           })
           .catch((error) => {
+            setLoading(false)
             // console.log('error', error)
           })
       }
@@ -102,13 +110,28 @@ export default function DashBoard() {
           <Link href="/login">SignOut</Link>
         </button>
       </div>
-      <>
-        {statsAvailable && userStats ? (
-          <StatsSection stats={userStats} />
-        ) : (
-          <Unwrapped setStatsAvailable={setStatsAvailable} />
-        )}
-      </>
+      {loading ? (
+        <>
+          <div className="mx-auto mt-16 w-fit">
+            <div className=" animate-pulse">
+              <div
+                style={{ borderTopColor: 'transparent' }}
+                className="h-16 w-16 animate-spin rounded-full border-4 border-solid border-red-400"
+              ></div>
+              <p>Loading...</p>
+            </div>
+          </div>
+        </>
+      ) : (
+        // <>
+        <>
+          {statsAvailable && userStats ? (
+            <StatsSection stats={userStats} />
+          ) : (
+            <Unwrapped setStatsAvailable={setStatsAvailable} />
+          )}
+        </>
+      )}
     </>
   )
 }
