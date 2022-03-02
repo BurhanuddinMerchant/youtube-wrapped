@@ -65,7 +65,7 @@ export default function Login() {
       </Head>
       <div className="flex min-h-screen w-full bg-red-100 ">
         <div className="mx-auto my-auto flex h-fit w-full flex-col-reverse justify-between rounded-lg bg-none p-10 sm:w-1/2 sm:flex-row sm:bg-white">
-          <div className=" mx-auto my-auto h-fit w-fit rounded-md bg-gray-200 p-10 shadow-sm sm:hover:bg-red-100">
+          <div className=" mx-auto my-auto h-fit w-fit rounded-md bg-white p-10  shadow-lg sm:bg-slate-200">
             <div className=" mb-2 flex justify-between">
               <h2 className="ml-1 cursor-pointer text-xl font-semibold text-red-400">
                 Login

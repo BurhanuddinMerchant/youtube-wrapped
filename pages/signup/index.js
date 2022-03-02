@@ -73,7 +73,7 @@ export default function SignUp() {
           <div className="my-auto mr-10 hidden w-full sm:block sm:w-96">
             <img src={loginSVG.src} className="w-full" />
           </div>
-          <div className=" mx-auto my-auto h-fit w-fit rounded-md bg-gray-200 p-10 shadow-sm sm:hover:bg-red-100">
+          <div className=" mx-auto my-auto h-fit w-fit rounded-md bg-white p-10  shadow-lg sm:bg-slate-200">
             <div className=" mb-2 flex justify-between">
               <h2 className="ml-1 cursor-pointer text-xl font-semibold text-red-400">
                 SignUp
