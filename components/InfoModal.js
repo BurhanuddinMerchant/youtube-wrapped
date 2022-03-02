@@ -12,7 +12,7 @@ export default function InfoModal(props) {
       />
       {showModal ? (
         <>
-          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none">
+          <div className="fixed inset-0 z-50 mx-5 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none sm:mx-auto">
             <div className="relative my-6 mx-auto w-auto max-w-3xl">
               {/*content*/}
               <div className="relative flex w-full flex-col rounded-md border-0 bg-white shadow-lg outline-none focus:outline-none">
