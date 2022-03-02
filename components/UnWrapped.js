@@ -1,3 +1,4 @@
+import { ExclamationIcon } from '@heroicons/react/solid'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import ConditionalButton from './ConditionalButton'
@@ -51,37 +52,45 @@ export default function Unwrapped(props) {
       })
   }
   return (
-    <div className="flex flex-col justify-between">
-      {YTAccessToken ? (
-        <>
-          <div>
-            It Seems like You have not yet applied to generate your wrap, click
-            below to UnWrap. Please Note it may take upto 30s for the data to
-            load
-          </div>
-          <ConditionalButton
-            onClickFunction={makeStatsGenerationAPICall}
-            isLoading={isLoading}
-            doneUnWrapping={doneUnWrapping}
-            proceedFunction={() => {
-              setStatsAvailable(true)
-            }}
-          />
-        </>
-      ) : (
-        <>
-          <div>
-            It Seems like You have not yet applied to generate your wrap, click
-            below to Authorize our application to generate your Wrap
-          </div>
-          <button
-            className="mx-auto my-2 w-fit cursor-pointer rounded-md bg-red-500 px-2 py-1 text-white hover:bg-red-600 hover:text-red-100 hover:shadow-sm hover:shadow-red-300"
-            onClick={() => router.push('/authorize')}
-          >
-            Authorize
-          </button>
-        </>
-      )}
+    <div className=" flexlex-col justify-between">
+      <div className="mx-5 mt-14 flex w-fit flex-col rounded-md bg-red-50 p-5  shadow-md sm:mx-auto">
+        <div className="mx-auto mb-2 flex">
+          <p className="my-auto w-fit text-center text-xl font-bold text-red-500">
+            Note
+          </p>
+          <ExclamationIcon className="h-7 w-7 text-red-500" />
+        </div>
+        {YTAccessToken ? (
+          <>
+            <div className="text-center">
+              It Seems like You have not yet applied to generate your wrap,
+              click below to UnWrap. Please Note it may take upto 30s for the
+              data to load
+            </div>
+            <ConditionalButton
+              onClickFunction={makeStatsGenerationAPICall}
+              isLoading={isLoading}
+              doneUnWrapping={doneUnWrapping}
+              proceedFunction={() => {
+                setStatsAvailable(true)
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <div className="text-center">
+              It Seems like You have not yet applied to generate your wrap,
+              click below to Authorize our application to generate your Wrap
+            </div>
+            <button
+              className="mx-auto my-2 w-fit cursor-pointer rounded-md bg-red-500 px-2 py-1 text-white hover:bg-red-600 hover:shadow-sm hover:shadow-red-300"
+              onClick={() => router.push('/authorize')}
+            >
+              Authorize
+            </button>
+          </>
+        )}
+      </div>
     </div>
   )
 }
