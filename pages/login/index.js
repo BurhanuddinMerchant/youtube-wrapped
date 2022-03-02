@@ -110,7 +110,7 @@ export default function Login() {
               ) : (
                 <button
                   type="submit"
-                  className=" mx-auto my-2 w-fit cursor-pointer  rounded-md bg-white px-2 py-1 hover:bg-red-600 hover:text-red-100"
+                  className="mx-auto my-2 w-fit cursor-pointer rounded-md border-2 border-red-600 bg-white px-2 py-1 text-red-600 hover:bg-red-600 hover:text-red-100 sm:border-0 sm:text-black"
                 >
                   Login
                 </button>
