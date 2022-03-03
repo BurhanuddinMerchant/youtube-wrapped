@@ -21,13 +21,13 @@ export default function ComparisonCard(props) {
           <div>
             <ThumbUpIcon className=" mx-auto h-5 w-5 text-green-500 hover:animate-bounce" />
           </div>
-          <div>{Number(liked.toFixed(1))}</div>
+          <div>{liked ? Number(liked.toFixed(1)) : 0}</div>
         </div>
         <div className="flex flex-col justify-center p-2">
           <div>
             <ThumbDownIcon className="h-5 w-5  text-red-500 hover:animate-bounce" />
           </div>
-          <div>{Number(disliked.toFixed(1))}</div>
+          <div>{disliked ? Number(disliked.toFixed(1)) : 0}</div>
         </div>
       </div>
       <div className="flex w-full rounded-b-full">
