@@ -1,4 +1,4 @@
-import { ExclamationIcon } from '@heroicons/react/solid'
+import { ExclamationIcon, ArrowCircleRightIcon } from '@heroicons/react/solid'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import ConditionalButton from './ConditionalButton'
@@ -90,6 +90,14 @@ export default function Unwrapped(props) {
             </button>
           </>
         )}
+        <a
+          href="https://www.freeprivacypolicy.com/live/5b748d69-c3dd-4aee-bc91-be3a5ef8f2a9"
+          className="mx-auto flex w-fit cursor-pointer hover:text-gray-400"
+          target="_blank"
+        >
+          <p className="mx-auto my-auto mr-1 w-fit ">Privacy Plicy</p>
+          <ArrowCircleRightIcon className="my-auto mx-auto h-5 w-5" />
+        </a>
       </div>
     </div>
   )
