@@ -1,16 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState } from 'react'
 import YoutubeSVG from '../assets/images/youtube.svg'
 import AnalyticsSVG from '../assets/images/hero_analytics_dark.svg'
+// import { Fade, Bounce, Flip } from 'react-awesome-reveal'
+import Fade from 'react-reveal/Fade'
+import { Zoom } from 'react-reveal'
+
 export default function Home() {
-  const [formData, setFormData] = useState({ username: '', password: '' })
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
   return (
     <>
       <Head>
@@ -59,10 +55,16 @@ export default function Home() {
           </div>
         </div>
         <div className="mx-auto rounded-lg bg-red-100 p-5 sm:w-1/2">
-          <h1 className="mx-auto my-10 w-fit text-center text-3xl font-bold text-red-600 sm:text-6xl">
-            Welcome To Youtube Wrapped
-          </h1>
-          <img src={AnalyticsSVG.src} className="w-full"></img>
+          <Fade cascade right>
+            <h1 className="mx-auto my-10 w-fit text-center text-3xl font-bold text-red-600 sm:text-6xl">
+              Welcome To Youtube Wrapped
+            </h1>
+          </Fade>
+          <Zoom>
+            <Fade cascade left>
+              <img src={AnalyticsSVG.src} className="w-full"></img>
+            </Fade>
+          </Zoom>
         </div>
       </div>
     </>
