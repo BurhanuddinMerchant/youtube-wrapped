@@ -6,8 +6,8 @@ export default function StatsSection(props) {
   const [processedData, setProcessedData] = useState(null)
   useEffect(() => {
     setProcessedData({ ...getProcessedStats(stats) })
-    console.log(processedData)
-    console.log(stats)
+    // console.log(processedData)
+    // console.log(stats)
   }, [])
   return (
     <>
