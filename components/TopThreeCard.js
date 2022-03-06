@@ -1,9 +1,14 @@
-import { InformationCircleIcon, StarIcon } from '@heroicons/react/solid'
+import {
+  InformationCircleIcon,
+  StarIcon,
+  PlusCircleIcon,
+} from '@heroicons/react/solid'
 import InfoModal from './InfoModal'
+import MoreModal from './MoreModal'
 InformationCircleIcon
 export default function TopThreeCard(props) {
   const star_color = ['text-yellow-500', 'text-gray-300', 'text-amber-600']
-  const { top, title, infoDescription } = props.data
+  const { top, title, infoDescription, all, all_title } = props.data
   return (
     <>
       <div className=" my-10 w-full rounded-md bg-slate-100 shadow-md hover:shadow-lg sm:w-96">
@@ -35,11 +40,20 @@ export default function TopThreeCard(props) {
             </div>
           ))
         ) : (
-          <div className={`flex flex-row justify-between  p-2 `}>
+          <div className={`flex flex-row justify-between  p-2  `}>
             {/* <div>{`#${i + 1}`}</div> */}
 
             <div className=" mx-auto">Data Unavailable</div>
           </div>
+        )}
+        {top.length === 3 ? (
+          <MoreModal
+            title={all_title}
+            data={all}
+            error={all ? null : 'Extra Data Not Available'}
+          />
+        ) : (
+          ''
         )}
       </div>
     </>

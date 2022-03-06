@@ -70,17 +70,17 @@ export default function About() {
             </Fade>
             <Fade left>
               <div className="mt-10 text-center text-lg">
-                Commodo aute nulla voluptate aliqua voluptate tempor duis et et
-                consectetur. Lorem eu irure consequat tempor magna. Elit
-                adipisicing consectetur occaecat veniam duis Lorem dolor.
-                Laborum amet ea cupidatat aliqua nisi do in non pariatur.Commodo
-                aute nulla voluptate aliqua voluptate tempor duis et et
-                consectetur. Lorem eu irure consequat tempor magna. Elit
-                adipisicing consectetur occaecat veniam duis Lorem dolor.
-                Laborum amet ea cupidatat aliqua nisi do in non pariatur.Commodo
-                aute nulla voluptate aliqua voluptate tempor duis et et
-                consectetur. Lorem eu irure consequat tempor magna. Elit
-                adipisicing consectetur occaecat veniam duis Lorem dolor.
+                Welcome to Youtube Wrapped!! Commodo aute nulla voluptate aliqua
+                voluptate tempor duis et et consectetur. Lorem eu irure
+                consequat tempor magna. Elit adipisicing consectetur occaecat
+                veniam duis Lorem dolor. Laborum amet ea cupidatat aliqua nisi
+                do in non pariatur.Commodo aute nulla voluptate aliqua voluptate
+                tempor duis et et consectetur. Lorem eu irure consequat tempor
+                magna. Elit adipisicing consectetur occaecat veniam duis Lorem
+                dolor. Laborum amet ea cupidatat aliqua nisi do in non
+                pariatur.Commodo aute nulla voluptate aliqua voluptate tempor
+                duis et et consectetur. Lorem eu irure consequat tempor magna.
+                Elit adipisicing consectetur occaecat veniam duis Lorem dolor.
                 Laborum amet ea cupidatat aliqua nisi do in non pariatur.Commodo
                 aute nulla voluptate aliqua voluptate tempor duis et et
                 consectetur. Lorem eu irure consequat tempor magna. Elit
