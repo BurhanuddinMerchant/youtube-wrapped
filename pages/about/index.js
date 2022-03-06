@@ -16,7 +16,7 @@ export default function About() {
           name="description"
           content="A Website to generate your own Youtube Wrapped"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <div className="h-full bg-red-100 pb-20">
         <Fade right cascade>
@@ -149,37 +149,40 @@ export default function About() {
               </div>
             </Fade>
             <hr className="mt-5" />
-            <div className="mx-auto mt-5 w-fit text-2xl font-medium text-red-700">
-              About The Project
-            </div>
+            <Fade right>
+              <div className="mx-auto mt-5 w-fit text-2xl font-medium text-red-700">
+                About The Project
+              </div>
+            </Fade>
+            <Fade left>
+              <img src={aboutSVG.src} alt="about" className=" mx-auto mt-10" />
 
-            <img src={aboutSVG.src} alt="about" className=" mx-auto mt-10" />
-
-            <div className="mt-10 text-center text-lg">
-              <p className="text-left">
-                This is a Full Stack Web Application built around an ETL data
-                pipeline.
-              </p>
-              <p className="mt-2 text-left">
-                I wanted to set up a Data-Pipeline from a very long time, and
-                also improve upon my Front-End development skills (UI and
-                Design), and at the same time wanted to do something related to
-                Cloud and DevOps, so when I randomly came up with a meaningful
-                and fun (according to me XD) problem statement, all of the
-                desires listed above just fell into place , and I started to
-                work on what you are seeing right now.
-              </p>
-              <hr className="mt-5" />
-              <p className="mt-5">
-                So what are you waiting for ?
-                <Link href="/login">
-                  <span className="mx-2 cursor-pointer rounded-lg border-2 border-red-600 bg-red-600 p-1 font-medium text-white hover:bg-white hover:text-black">
-                    Click Here
-                  </span>
-                </Link>
-                and Get Your Wrap Right Now!
-              </p>
-            </div>
+              <div className="mt-10 text-center text-lg">
+                <p className="text-left">
+                  This is a Full Stack Web Application built around an ETL data
+                  pipeline.
+                </p>
+                <p className="mt-2 text-left">
+                  I wanted to set up a Data-Pipeline from a very long time, and
+                  also improve upon my Front-End development skills (UI and
+                  Design), and at the same time wanted to do something related
+                  to Cloud and DevOps, so when I randomly came up with a
+                  meaningful and fun (according to me XD) problem statement, all
+                  of the desires listed above just fell into place , and I
+                  started to work on what you are seeing right now.
+                </p>
+                <hr className="mt-5" />
+                <p className="mt-5">
+                  So what are you waiting for ?
+                  <Link href="/login">
+                    <button className="mx-2 cursor-pointer rounded-lg border-2 border-red-600 bg-red-600 p-1 font-medium text-white hover:bg-white hover:text-black">
+                      Click Here
+                    </button>
+                  </Link>
+                  and Get Your Wrap Right Now!
+                </p>
+              </div>
+            </Fade>
           </div>
         </Zoom>
       </div>

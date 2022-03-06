@@ -24,7 +24,7 @@ export default function Contact() {
           name="description"
           content="A Website to generate your own Youtube Wrapped"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <div className="box-border h-screen w-full bg-red-100">
         <Fade right cascade>

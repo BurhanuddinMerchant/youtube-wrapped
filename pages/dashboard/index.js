@@ -98,7 +98,7 @@ export default function DashBoard() {
           name="description"
           content="A Website to generate your own Youtube Wrapped"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <div className="flex w-full flex-col  justify-between bg-gray-700 p-3 sm:flex-row">
         <div className=" text-center">
