@@ -11,6 +11,39 @@ export default function Contact() {
   })
   const handleSubmit = (e) => {
     e.preventDefault()
+    var myHeaders = new Headers()
+    myHeaders.append('Content-Type', 'application/json')
+
+    var raw = JSON.stringify(formState)
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+    }
+
+    fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/email`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        setFormState({
+          email: '',
+          name: '',
+          message: '',
+        })
+        console.log(result)
+      })
+      .catch((error) => {
+        setFormState({
+          email: '',
+          name: '',
+          message: '',
+        })
+        console.log('error', error)
+      })
   }
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value })
