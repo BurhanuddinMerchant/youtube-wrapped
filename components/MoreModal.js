@@ -14,8 +14,8 @@ export default function MoreModal(props) {
       </div>
       {showModal ? (
         <>
-          <div className="fixed inset-0 z-50 mx-5 flex h-full items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none sm:mx-auto">
-            <div className="relative my-6 mx-auto w-auto max-w-3xl">
+          <div className="fixed inset-0 z-50 mx-3 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none sm:mx-auto">
+            <div className="relative my-6 mx-auto w-11/12 max-w-3xl sm:w-5/6">
               {/*content*/}
               <div className="relative flex w-full flex-col rounded-md border-0 bg-white shadow-lg outline-none focus:outline-none">
                 {/*header*/}
@@ -35,7 +35,7 @@ export default function MoreModal(props) {
                     {error ? (
                       <>{`${error}`}</>
                     ) : (
-                      <div className="h-screen max-h-96 min-w-full overflow-scroll overflow-x-hidden">
+                      <div className=" h-48 min-w-full overflow-scroll overflow-x-hidden sm:h-96">
                         {Object.keys(data).map((field, i) => {
                           return (
                             <div
@@ -43,7 +43,7 @@ export default function MoreModal(props) {
                               className="mr-1 flex justify-between border-b-2 border-slate-100 p-2 text-center"
                             >
                               <div>{i + 1}</div>
-                              <div>{field}</div>
+                              <div className="mx-5">{field}</div>
                               <div>{data[field]}</div>
                             </div>
                           )

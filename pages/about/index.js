@@ -49,8 +49,8 @@ export default function About() {
                 </p>
                 <p className="mt-2 text-left">
                   This project is inspired by an analogous thing done by
-                  Spotify, called Spotify Wrapped. Towards the end of last year,
-                  in December 2021 , I got my very first
+                  Spotify, called Spotify Wrapped . Towards the end of last
+                  year, in December 2021 , I got my very first
                   <span className="mx-1 font-medium text-green-600">
                     <a
                       href="https://spotify.burhanuddinmerchant.ml/"

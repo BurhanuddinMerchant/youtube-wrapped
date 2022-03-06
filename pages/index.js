@@ -17,13 +17,13 @@ export default function Home() {
       <div className="box-border h-screen w-full bg-red-100">
         <NavBar active={{ home: true }} />
         <div className="mx-auto rounded-lg bg-red-100 p-5 sm:w-1/2">
-          <Fade left>
+          <Fade top>
             <h1 className="mx-auto my-10 w-fit text-center text-3xl font-bold text-red-600 sm:text-6xl">
               Welcome To Youtube Wrapped
             </h1>
           </Fade>
           <Zoom>
-            <Fade left>
+            <Fade bottom>
               <img src={AnalyticsSVG.src} className="w-full"></img>
             </Fade>
           </Zoom>

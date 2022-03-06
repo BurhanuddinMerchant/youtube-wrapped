@@ -43,7 +43,7 @@ export default function Contact() {
                 >
                   <input
                     type="email"
-                    className="rounded-lg border-2 border-red-500 bg-red-200 p-2 sm:border-white sm:hover:border-red-500"
+                    className="rounded-lg border-2 border-red-500 bg-red-200 p-2 placeholder-slate-500 sm:border-white sm:hover:border-red-500 "
                     placeholder="Enter your email"
                     required
                     value={formState.email}
@@ -52,7 +52,7 @@ export default function Contact() {
                   />
                   <input
                     type="text"
-                    className="mt-2 rounded-lg border-2 border-red-500 bg-red-200 p-2 sm:border-white sm:hover:border-red-500"
+                    className="mt-2 rounded-lg border-2 border-red-500 bg-red-200 p-2 placeholder-slate-500  sm:border-white sm:hover:border-red-500"
                     placeholder="Enter Your Full Name"
                     required
                     value={formState.name}
@@ -61,7 +61,7 @@ export default function Contact() {
                   />
                   <textarea
                     placeholder="Message"
-                    className=" mt-2 h-32 rounded-lg border-2 border-red-500 bg-red-200 p-2 sm:border-white sm:hover:border-red-500"
+                    className=" mt-2 h-32 rounded-lg border-2 border-red-500 bg-red-200 p-2 placeholder-slate-500  sm:border-white sm:hover:border-red-500"
                     value={formState.message}
                     onChange={handleChange}
                     name="message"

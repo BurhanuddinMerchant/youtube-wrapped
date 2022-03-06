@@ -108,7 +108,7 @@ export default function Login() {
                   value={formData.password}
                 />
                 <p className="mx-auto my-2 text-sm">
-                  Dont have an account yet?
+                  Dont have an account yet?{' '}
                   <Link href="/signup" className="cursor-pointer text-red-400">
                     <section className="inline cursor-pointer font-medium text-red-500">
                       Register Here
