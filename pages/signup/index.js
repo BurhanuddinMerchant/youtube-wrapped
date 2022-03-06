@@ -5,8 +5,11 @@ import { useState, useEffect } from 'react'
 import loginSVG from '../../assets/images/login.svg'
 import { HomeIcon } from '@heroicons/react/solid'
 import { Fade } from 'react-reveal'
-
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import NavBar from '../../components/Navbar'
 export default function SignUp() {
+  const errorToast = () => toast.error('An error occured')
   const router = useRouter()
   const [formData, setFormData] = useState({
     username: '',
@@ -59,6 +62,7 @@ export default function SignUp() {
       })
       .catch((error) => {
         setLoading(false)
+        errorToast()
         setFormData({ username: '', password: '', email: '' })
       })
   }
@@ -72,7 +76,8 @@ export default function SignUp() {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <div className="flex min-h-screen w-full bg-red-100 ">
+      <div className="flex min-h-screen w-full flex-col bg-red-100 ">
+        <NavBar active={{ explore: true }} />
         <div className="mx-auto my-auto flex h-fit w-full flex-col-reverse justify-between rounded-lg bg-none p-10 sm:w-1/2 sm:flex-row sm:bg-white">
           <Fade right>
             <div className="my-auto mr-10 hidden w-full sm:block sm:w-96">
@@ -143,6 +148,7 @@ export default function SignUp() {
             </div>
           </Fade>
         </div>
+        <ToastContainer />
       </div>
     </>
   )

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import StatsSection from '../../components/Stats.js'
 import Unwrapped from '../../components/UnWrapped.js'
 export default function DashBoard() {
+  const errorToast = (message) => toast.error(message)
   const router = useRouter()
   const [statsAvailable, setStatsAvailable] = useState(false)
   const [userStats, setUserStats] = useState(null)
@@ -14,6 +15,7 @@ export default function DashBoard() {
   useEffect(() => {
     setLoading(true)
     if (!sessionStorage.getItem('token')) {
+      errorToast('Please Login!')
       router.push('/')
     } else {
       var myHeaders = new Headers()
@@ -35,6 +37,7 @@ export default function DashBoard() {
           setUsername(result.data.username)
         })
         .catch((e) => {
+          errorToast('An Error Occured')
           // console.log(e)
         })
       let user_stats = localStorage.getItem('userStats')
@@ -67,6 +70,7 @@ export default function DashBoard() {
                   })
                   .catch((error) => {
                     // console.log('error', error)
+                    errorToast('An Error Occured')
                     setLoading(false)
                   })
               } else {
@@ -79,6 +83,7 @@ export default function DashBoard() {
           })
           .catch((error) => {
             setLoading(false)
+            errorToast('An Error Occured')
             // console.log('error', error)
           })
       }
@@ -87,8 +92,9 @@ export default function DashBoard() {
 
   const handleSignOut = () => {
     sessionStorage.removeItem('token')
-    localStorage.removeItem('userStats'),
-      sessionStorage.removeItem('yt_access_token')
+    localStorage.removeItem('userStats')
+    sessionStorage.removeItem('yt_access_token')
+    router.push('/')
   }
   return (
     <>

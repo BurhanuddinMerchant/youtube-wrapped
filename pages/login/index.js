@@ -5,8 +5,12 @@ import { useState, useEffect } from 'react'
 import loginSVG from '../../assets/images/login.svg'
 import { HomeIcon } from '@heroicons/react/solid'
 import { Fade } from 'react-reveal'
+import NavBar from '../../components/Navbar'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Login() {
+  const errorToast = () => toast.error('An error occured')
   const router = useRouter()
   const [formData, setFormData] = useState({ username: '', password: '' })
   const [isLoading, setLoading] = useState(false)
@@ -55,6 +59,7 @@ export default function Login() {
       })
       .catch((error) => {
         setLoading(false)
+        errorToast()
         setFormData({ ...formData, username: '', password: '' })
       })
   }
@@ -68,7 +73,8 @@ export default function Login() {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <div className="flex min-h-screen w-full bg-red-100">
+      <div className="flex min-h-screen w-full flex-col bg-red-100">
+        <NavBar active={{ explore: true }} />
         <div className="mx-auto my-auto flex h-fit w-full flex-col-reverse justify-between rounded-lg bg-none p-10 sm:w-1/2 sm:flex-row sm:bg-white">
           <Fade left cascade>
             <div className=" mx-auto my-auto h-fit w-fit rounded-md bg-white p-10  shadow-lg sm:bg-slate-200">
@@ -130,6 +136,7 @@ export default function Login() {
             </div>
           </Fade>
         </div>
+        <ToastContainer />
       </div>
     </>
   )

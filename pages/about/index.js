@@ -2,10 +2,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { Zoom } from 'react-reveal'
 import Fade from 'react-reveal/Fade'
-import YoutubeSVG from '../../assets/images/youtube.svg'
 import aboutSVG from '../../assets/images/about.svg'
 import meSVG from '../../assets/images/me.svg'
+import projectSVG from '../../assets/images/project.svg'
 import { CodeIcon, MusicNoteIcon } from '@heroicons/react/solid'
+import NavBar from '../../components/Navbar'
 
 export default function About() {
   return (
@@ -19,49 +20,7 @@ export default function About() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <div className="h-full bg-red-100 pb-20">
-        <Fade right cascade>
-          <div className="flex flex-col  justify-between pt-2 sm:flex-row ">
-            <div className="mx-auto flex w-fit justify-center sm:mx-10 ">
-              <img src={YoutubeSVG.src} className=" h-10" />
-              <h1 className="my-auto mx-2 text-xl font-bold text-red-900">
-                YTW
-              </h1>
-            </div>
-
-            <div className="my-auto mx-auto text-lg sm:mr-14" id="mobile-menu">
-              <ul className="flex flex-col text-center sm:flex-row  sm:space-x-8">
-                <li>
-                  <Link href="/">
-                    <p className="cursor-pointer rounded-lg p-1 text-lg font-medium text-red-400 hover:bg-red-600 hover:text-white">
-                      Home
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/login">
-                    <p className="cursor-pointer rounded-lg p-1 text-lg font-medium text-red-400 hover:bg-red-600 hover:text-white">
-                      Explore
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" ariaCurrent="page">
-                    <p className="cursor-pointer p-1 text-lg font-medium text-red-600">
-                      About
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact">
-                    <p className="cursor-pointer rounded-lg p-1 text-lg font-medium text-red-400 hover:bg-red-600 hover:text-white">
-                      Contact
-                    </p>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Fade>
+        <NavBar active={{ about: true }} />
 
         <Zoom>
           <div className="mx-auto mt-10 w-full rounded-lg bg-white p-10 shadow-md sm:w-2/3">
@@ -155,7 +114,11 @@ export default function About() {
               </div>
             </Fade>
             <Fade left>
-              <img src={aboutSVG.src} alt="about" className=" mx-auto mt-10" />
+              <img
+                src={projectSVG.src}
+                alt="about"
+                className=" mx-auto mt-10"
+              />
 
               <div className="mt-10 text-center text-lg">
                 <p className="text-left">
@@ -175,7 +138,7 @@ export default function About() {
                 <p className="mt-5">
                   So what are you waiting for ?
                   <Link href="/login">
-                    <button className="mx-2 cursor-pointer rounded-lg border-2 border-red-600 bg-red-600 p-1 font-medium text-white hover:bg-white hover:text-black">
+                    <button className="mx-2 cursor-pointer rounded-lg border-2 border-red-600 bg-red-600 px-1 font-medium text-white hover:bg-white hover:text-black">
                       Click Here
                     </button>
                   </Link>

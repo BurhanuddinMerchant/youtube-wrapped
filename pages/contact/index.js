@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import { Fade, Zoom } from 'react-reveal'
 import { useState } from 'react'
-import YoutubeSVG from '../../assets/images/youtube.svg'
+import NavBar from '../../components/Navbar'
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -27,49 +26,8 @@ export default function Contact() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <div className="box-border h-screen w-full bg-red-100">
-        <Fade right cascade>
-          <div className="flex flex-col  justify-between pt-2 sm:flex-row ">
-            <div className="mx-auto flex w-fit justify-center sm:mx-10 ">
-              <img src={YoutubeSVG.src} className=" h-10" />
-              <h1 className="my-auto mx-2 text-xl font-bold text-red-900">
-                YTW
-              </h1>
-            </div>
+        <NavBar active={{ contact: true }} />
 
-            <div className="my-auto mx-auto text-lg sm:mr-14" id="mobile-menu">
-              <ul className="flex flex-col text-center sm:flex-row  sm:space-x-8">
-                <li>
-                  <Link href="/" ariaCurrent="page">
-                    <p className="cursor-pointer rounded-lg p-1 text-lg font-medium text-red-400 hover:bg-red-600 hover:text-white">
-                      Home
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/login">
-                    <p className="cursor-pointer rounded-lg p-1 text-lg font-medium text-red-400 hover:bg-red-600 hover:text-white">
-                      Explore
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about">
-                    <p className="cursor-pointer rounded-lg p-1 text-lg font-medium text-red-400 hover:bg-red-600 hover:text-white">
-                      About
-                    </p>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact">
-                    <p className="cursor-pointer p-1 text-lg font-medium text-red-600">
-                      Contact
-                    </p>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Fade>
         <Zoom>
           <div className="mx-auto mt-10 w-full rounded-lg bg-white p-10 shadow-md sm:w-2/3">
             <Fade left>
