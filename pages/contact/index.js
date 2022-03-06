@@ -69,7 +69,7 @@ export default function Contact() {
                   />
                   <button
                     type="submit"
-                    className=" mx-auto mt-2 w-fit cursor-pointer rounded-lg border-2  border-red-500 p-1 text-lg hover:bg-red-500 hover:text-white"
+                    className=" mx-auto mt-2 w-fit cursor-pointer rounded-lg border-2  border-red-500 bg-red-500 p-1 text-lg text-white hover:bg-white hover:text-black"
                   >
                     Submit
                   </button>

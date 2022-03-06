@@ -36,19 +36,33 @@ export default function About() {
               <div className="mt-10 text-center text-lg">
                 <p className="text-left">
                   Ever wondered what hours of binging content on Youtube looks
-                  like? Welcome To Youtube Wrapped, a One-Stop solution to know
-                  about your personal youtube statistics and data. You just need
-                  to Sign-Up to Youtube Wrapped, and authorize the application,
-                  thats it! Your Wrap is ready to be served to you. There are a
-                  large number of metrics you get access to ,that will give you
-                  insights about your Youtube watching habbits.
+                  like? Welcome To
+                  <span className="mx-1 font-medium text-red-600">
+                    Youtube Wrapped
+                  </span>
+                  , a One-Stop solution to know about your personal youtube
+                  statistics and data. You just need to Sign-Up to Youtube
+                  Wrapped, and authorize the application, thats it! Your Wrap is
+                  ready to be served to you. There are a large number of metrics
+                  you get access to ,that will give you insights about your
+                  Youtube watching habbits.
                 </p>
                 <p className="mt-2 text-left">
                   This project is inspired by an analogous thing done by
-                  Spotify, called Spotify Wrapped. Last year (2021), in December
-                  I got my very first Spotify Wrapped, and since then, I knew I
-                  had to do something similar to that , related to Youtube. So
-                  here we go , this is YouTube Wrapped for you.
+                  Spotify, called Spotify Wrapped. Towards the end of last year,
+                  in December 2021 , I got my very first
+                  <span className="mx-1 font-medium text-green-600">
+                    <a
+                      href="https://spotify.burhanuddinmerchant.ml/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Spotify Wrapped
+                    </a>
+                  </span>
+                  , and since then, I knew I had to do something similar to that
+                  , related to Youtube. So here we go , this is YouTube Wrapped
+                  for you.
                 </p>
               </div>
             </Fade>
@@ -80,7 +94,7 @@ export default function About() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <MusicNoteIcon className="mx-1 inline h-5 w-5 cursor-pointer text-purple-500 hover:text-slate-400" />
+                    <MusicNoteIcon className="mx-1 inline h-5 w-5 animate-bounce cursor-pointer text-purple-500 hover:text-slate-400" />
                   </a>
                   and write
                   <a
@@ -88,7 +102,7 @@ export default function About() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <CodeIcon className="mx-1 inline h-5 w-5 cursor-pointer text-blue-500 hover:text-slate-400" />
+                    <CodeIcon className="mx-1 inline h-5 w-5 animate-bounce cursor-pointer text-blue-500 hover:text-slate-400" />
                   </a>
                   sometimes. I love collab ...blah blah. I love building real
                   world .... blah blah blah.
@@ -99,7 +113,7 @@ export default function About() {
                   <a
                     href="https://burhanuddinmerchant.ml"
                     target="_blank"
-                    className="ml-2 cursor-pointer font-medium text-red-600 "
+                    className="ml-2 animate-pulse cursor-pointer font-medium text-red-600"
                     rel="noreferrer"
                   >
                     burhanuddinmerchant.ml
@@ -138,7 +152,7 @@ export default function About() {
                 <p className="mt-5">
                   So what are you waiting for ?
                   <Link href="/login">
-                    <button className="mx-2 cursor-pointer rounded-lg border-2 border-red-600 bg-red-600 px-1 font-medium text-white hover:bg-white hover:text-black">
+                    <button className="mx-2 animate-pulse cursor-pointer rounded-lg border-2 border-red-600 bg-red-600 px-1 font-medium text-white hover:bg-white hover:text-black">
                       Click Here
                     </button>
                   </Link>

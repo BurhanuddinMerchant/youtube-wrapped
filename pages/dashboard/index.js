@@ -1,10 +1,11 @@
-import { HomeIcon } from '@heroicons/react/solid'
 import Head from 'next/head'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import DashNav from '../../components/DashNav.js'
+import Loading from '../../components/Loading.js'
 import StatsSection from '../../components/Stats.js'
 import Unwrapped from '../../components/UnWrapped.js'
+
 export default function DashBoard() {
   const errorToast = (message) => toast.error(message)
   const router = useRouter()
@@ -56,7 +57,7 @@ export default function DashBoard() {
               setStatsAvailable(result.data.status)
               if (result.data.status === true) {
                 fetch(
-                  `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/stats`,
+                  `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/test/stats`,
                   requestOptions
                 )
                   .then((response) => response.json())
@@ -90,12 +91,6 @@ export default function DashBoard() {
     }
   }, [statsAvailable])
 
-  const handleSignOut = () => {
-    sessionStorage.removeItem('token')
-    localStorage.removeItem('userStats')
-    sessionStorage.removeItem('yt_access_token')
-    router.push('/')
-  }
   return (
     <>
       <Head>
@@ -106,36 +101,10 @@ export default function DashBoard() {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <div className="flex w-full flex-col  justify-between bg-gray-700 p-3 sm:flex-row">
-        <div className=" text-center">
-          <h2 className=" mx-auto cursor-pointer text-xl font-semibold text-red-400">
-            Welcome To Youtube Wrapped {username} !
-          </h2>
-        </div>
-        <div className="mx-auto flex w-fit sm:mx-0">
-          <HomeIcon
-            className="my-auto mt-2 mr-2 h-8 w-8 cursor-pointer text-white hover:text-red-400 sm:my-auto"
-            onClick={() => router.push('/')}
-          />
-          <button
-            className="mx-auto  mt-2 w-fit cursor-pointer rounded-md bg-white  px-2 py-1 hover:bg-red-400 hover:text-red-100 sm:mx-0 sm:my-auto"
-            onClick={handleSignOut}
-          >
-            <Link href="/login">SignOut</Link>
-          </button>
-        </div>
-      </div>
+      <DashNav username={username} />
       {loading ? (
         <>
-          <div className="mx-auto mt-16 w-fit">
-            <div className=" animate-pulse">
-              <div
-                style={{ borderTopColor: 'transparent' }}
-                className="h-16 w-16 animate-spin rounded-full border-4 border-solid border-red-400"
-              ></div>
-              <p>Loading...</p>
-            </div>
-          </div>
+          <Loading />
         </>
       ) : (
         // <>

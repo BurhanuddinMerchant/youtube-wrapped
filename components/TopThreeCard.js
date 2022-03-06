@@ -11,7 +11,7 @@ export default function TopThreeCard(props) {
   const { top, title, infoDescription, all, all_title } = props.data
   return (
     <>
-      <div className=" my-10 w-full rounded-md bg-slate-100 shadow-md hover:shadow-lg sm:w-96">
+      <div className=" my-10 w-full cursor-pointer rounded-md bg-slate-100 shadow-md hover:shadow-lg sm:w-96">
         <div className="flex flex-row justify-between rounded-t-md bg-red-400 p-2 ">
           <h1 className=" font-medium">{title}</h1>
           <div>

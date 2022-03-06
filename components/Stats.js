@@ -11,7 +11,7 @@ export default function StatsSection(props) {
   }, [])
   return (
     <>
-      <div className=" flex w-full cursor-pointer flex-wrap justify-evenly p-10">
+      <div className=" flex w-full flex-wrap justify-evenly p-10">
         <ComparisonCard
           data={{
             title: 'Total Rated Videos',
