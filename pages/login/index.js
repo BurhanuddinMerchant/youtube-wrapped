@@ -132,7 +132,7 @@ export default function Login() {
           </Fade>
           <Fade right>
             <div className="my-auto ml-10 hidden w-full sm:block sm:w-96">
-              <img src={loginSVG.src} className="w-full" />
+              <img src={loginSVG.src} className="w-full" alt="login" />
             </div>
           </Fade>
         </div>

@@ -73,7 +73,7 @@ export default function Contact() {
             </Fade>
             <div className="mx-auto my-auto flex h-fit w-fit flex-col-reverse rounded-lg  bg-none sm:flex-row sm:bg-white xl:p-10">
               <div className="my-auto mx-0 hidden w-full sm:mr-10  sm:w-96 xl:block">
-                <img src={contactSVG.src} className="w-full" />
+                <img src={contactSVG.src} alt="contact" className="w-full" />
               </div>
               <Fade left>
                 <div className="mx-auto mt-10 text-center text-lg">

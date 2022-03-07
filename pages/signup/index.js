@@ -81,7 +81,7 @@ export default function SignUp() {
         <div className="mx-auto my-auto flex h-fit w-full flex-col-reverse justify-between rounded-lg bg-none p-10 sm:w-1/2 sm:flex-row sm:bg-white">
           <Fade right>
             <div className="my-auto mr-10 hidden w-full sm:block sm:w-96">
-              <img src={loginSVG.src} className="w-full" />
+              <img src={loginSVG.src} alt="signup" className="w-full" />
             </div>
           </Fade>
           <Fade left cascade>

@@ -30,7 +30,11 @@ export default function About() {
               </div>
             </Fade>
             <Fade right>
-              <img src={aboutSVG.src} alt="about" className=" mx-auto mt-10" />
+              <img
+                src={aboutSVG.src}
+                alt="about ytw"
+                className=" mx-auto mt-10"
+              />
             </Fade>
             <Fade left>
               <div className="mt-10 text-center text-lg">
@@ -73,7 +77,7 @@ export default function About() {
               </div>
             </Fade>
             <Fade right>
-              <img src={meSVG.src} alt="about" className=" mx-auto mt-10" />
+              <img src={meSVG.src} alt="about me" className=" mx-auto mt-10" />
             </Fade>
             <Fade left>
               <div className="mt-10 text-center text-lg">
@@ -130,7 +134,7 @@ export default function About() {
             <Fade left>
               <img
                 src={projectSVG.src}
-                alt="about"
+                alt="about project"
                 className=" mx-auto mt-10"
               />
 

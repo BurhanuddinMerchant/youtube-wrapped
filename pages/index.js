@@ -24,7 +24,11 @@ export default function Home() {
           </Fade>
           <Zoom>
             <Fade bottom>
-              <img src={AnalyticsSVG.src} className="w-full"></img>
+              <img
+                src={AnalyticsSVG.src}
+                alt="landing"
+                className="w-full"
+              ></img>
             </Fade>
           </Zoom>
         </div>

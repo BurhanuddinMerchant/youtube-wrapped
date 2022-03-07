@@ -11,7 +11,7 @@ export default function NavBar(props) {
     <Fade right cascade>
       <div className="flex flex-col  justify-between pt-2 sm:flex-row ">
         <div className="mx-auto flex w-fit justify-center sm:mx-10 ">
-          <img src={YoutubeSVG.src} className=" h-10" />
+          <img src={YoutubeSVG.src} alt="logo" className=" h-10" />
           <h1 className="my-auto mx-2 text-xl font-bold text-red-900">YTW</h1>
         </div>
 
