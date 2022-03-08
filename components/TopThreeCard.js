@@ -20,7 +20,13 @@ export default function TopThreeCard(props) {
               }
             />
           </div>
-          <ReactTooltip id="infoTip" place="top" effect="solid">
+          <ReactTooltip
+            id="infoTip"
+            place="top"
+            effect="solid"
+            scrollHide={true}
+            disable={window.innerWidth < 640}
+          >
             More Info
           </ReactTooltip>
         </div>
@@ -58,7 +64,13 @@ export default function TopThreeCard(props) {
         ) : (
           ''
         )}
-        <ReactTooltip id="moreTip" place="bottom" effect="solid">
+        <ReactTooltip
+          id="moreTip"
+          place="bottom"
+          effect="solid"
+          scrollHide={true}
+          disable={window.innerWidth < 640}
+        >
           More Data
         </ReactTooltip>
       </div>

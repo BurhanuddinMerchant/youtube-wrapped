@@ -17,7 +17,13 @@ export default function ComparisonCard(props) {
           />
         </div>
 
-        <ReactTooltip id="infoTip" place="top" effect="solid">
+        <ReactTooltip
+          id="infoTip"
+          place="top"
+          effect="solid"
+          scrollHide={true}
+          disable={window.innerWidth < 640}
+        >
           More Info
         </ReactTooltip>
       </div>
