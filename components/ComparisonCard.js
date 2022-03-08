@@ -1,5 +1,6 @@
 import { ThumbDownIcon, ThumbUpIcon } from '@heroicons/react/solid'
 import InfoModal from './InfoModal'
+import ReactTooltip from 'react-tooltip'
 
 export default function ComparisonCard(props) {
   const { title, liked, disliked, infoDescription } = props.data
@@ -7,7 +8,7 @@ export default function ComparisonCard(props) {
     <div className=" my-10 w-full cursor-pointer rounded-md bg-slate-100 shadow-md hover:shadow-lg sm:w-96">
       <div className="flex flex-row justify-between rounded-t-md bg-red-400 p-2">
         <h1 className=" font-medium">{title}</h1>
-        <div>
+        <div data-tip data-for="infoTip">
           <InfoModal
             title={title}
             description={
@@ -15,6 +16,10 @@ export default function ComparisonCard(props) {
             }
           />
         </div>
+
+        <ReactTooltip id="infoTip" place="top" effect="solid">
+          More Info
+        </ReactTooltip>
       </div>
       <div className="my-5 flex flex-row justify-between p-2">
         <div className="flex flex-col justify-center p-2 ">

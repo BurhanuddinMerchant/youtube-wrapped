@@ -1,13 +1,12 @@
 import { InformationCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
-useState
 export default function InfoModal(props) {
   const { title, description } = props
   const [showModal, setShowModal] = useState(false)
   return (
     <>
       <InformationCircleIcon
-        className="h-5 w-5 text-blue-200 hover:text-blue-300"
+        className="h-5 w-5 text-blue-300 hover:text-white"
         onClick={() => setShowModal(true)}
       />
       {showModal ? (
