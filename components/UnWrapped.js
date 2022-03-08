@@ -94,7 +94,7 @@ export default function Unwrapped(props) {
           </>
         )}
         <a
-          href="https://www.freeprivacypolicy.com/live/5b748d69-c3dd-4aee-bc91-be3a5ef8f2a9"
+          href="https://privacy-policy.youtubewrapped.ml/"
           className="mx-auto flex w-fit cursor-pointer hover:text-gray-400"
           target="_blank"
           rel="noreferrer"
