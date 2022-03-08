@@ -68,6 +68,15 @@ export default function About() {
                   , related to Youtube. So here we go, this is YouTube Wrapped
                   for you.
                 </p>
+                <div className="mx-auto mt-5 w-fit">
+                  <iframe
+                    className=" sm:h-52 sm:w-96"
+                    src="https://www.youtube.com/embed/i0stGfnvdlg"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </Fade>
             <hr className="mt-5" />
