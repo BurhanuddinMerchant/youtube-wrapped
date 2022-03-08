@@ -45,6 +45,8 @@ export default function StatsSection(props) {
                       infoDescription: processedData[key]['info'],
                       all: processedData[key]['all_liked'],
                       all_title: `All Liked ${processedData[key]['title_helper']}`,
+                      unit: processedData[key]['unit_liked'],
+                      field: processedData[key]['field'],
                     }}
                   />
                   <TopThreeCard
@@ -55,6 +57,8 @@ export default function StatsSection(props) {
                       infoDescription: processedData[key]['info'],
                       all: processedData[key]['all_disliked'],
                       all_title: `All Disliked ${processedData[key]['title_helper']}`,
+                      unit: processedData[key]['unit_disliked'],
+                      field: processedData[key]['field'],
                     }}
                   />
                 </>
@@ -102,6 +106,9 @@ const getProcessedStats = (stats) => {
       all_disliked: {},
       title_helper: 'Channels',
       info: 'This Indicates the top 3 channels that you have liked/disliked based on the number of videos you have liked/disliked from that channel',
+      unit_liked: 'Likes',
+      unit_disliked: 'Dislikes',
+      field: 'Channel Title',
     },
     topic: {
       liked: {},
@@ -110,6 +117,9 @@ const getProcessedStats = (stats) => {
       all_disliked: {},
       title_helper: 'Topics',
       info: 'This Indicates the top 3 topics that you have liked/disliked based on the number of videos you have liked/disliked from that topic',
+      unit_liked: 'Likes',
+      unit_disliked: 'Dislikes',
+      field: 'Topic',
     },
     tags: {
       liked: {},
@@ -118,6 +128,9 @@ const getProcessedStats = (stats) => {
       all_disliked: {},
       title_helper: 'Tags',
       info: 'This Indicates the top 3 tags that you have liked/disliked based on the number of videos you have liked/disliked from that tag',
+      unit_liked: 'Likes',
+      unit_disliked: 'Dislikes',
+      field: 'Tag',
     },
     language: {
       liked: {},
@@ -126,6 +139,9 @@ const getProcessedStats = (stats) => {
       all_disliked: {},
       title_helper: 'Languages',
       info: 'This Indicates the top 3 languages that you have liked/disliked based on the number of videos you have liked/disliked from that language',
+      unit_liked: 'Likes',
+      unit_disliked: 'Dislikes',
+      field: 'Language',
     },
     duration_per_channel: {
       liked: {},
@@ -134,6 +150,9 @@ const getProcessedStats = (stats) => {
       all_disliked: {},
       title_helper: 'Most Viewed Channel (in sec)',
       info: 'This indicates your most watched channels based on the duraton of the video (in secs).',
+      unit_liked: 'Secs',
+      unit_disliked: 'Secs',
+      field: 'Channel Title',
     },
     duration_per_language: {
       liked: {},
@@ -142,6 +161,9 @@ const getProcessedStats = (stats) => {
       all_disliked: {},
       title_helper: 'Most Viewed Language (in sec)',
       info: 'This indicates your most watched languages based on the duraton of the video (in secs).',
+      unit_liked: 'Secs',
+      unit_disliked: 'Secs',
+      field: 'Language',
     },
     duration_per_topic: {
       liked: {},
@@ -150,6 +172,9 @@ const getProcessedStats = (stats) => {
       all_disliked: {},
       title_helper: 'Most Viewed Topic (in sec)',
       info: 'This indicates your most watched topics based on the duraton of the video (in secs).',
+      unit_liked: 'Secs',
+      unit_disliked: 'Secs',
+      field: 'Topic',
     },
   }
   for (let data_point in processedData) {

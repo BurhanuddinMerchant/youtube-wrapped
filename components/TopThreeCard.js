@@ -6,7 +6,8 @@ import ReactTooltip from 'react-tooltip'
 InformationCircleIcon
 export default function TopThreeCard(props) {
   const star_color = ['text-yellow-500', 'text-gray-300', 'text-amber-600']
-  const { top, title, infoDescription, all, all_title } = props.data
+  const { top, title, infoDescription, all, all_title, field, unit } =
+    props.data
   return (
     <>
       <div className=" my-10 w-full cursor-pointer rounded-md bg-slate-100 shadow-md hover:shadow-lg sm:w-96">
@@ -54,25 +55,18 @@ export default function TopThreeCard(props) {
           </div>
         )}
         {top.length === 3 ? (
-          <div data-tip data-for="moreTip">
+          <div>
             <MoreModal
               title={all_title}
               data={all}
               error={all ? null : 'Extra Data Not Available'}
+              field={field}
+              unit={unit}
             />
           </div>
         ) : (
           ''
         )}
-        <ReactTooltip
-          id="moreTip"
-          place="bottom"
-          effect="solid"
-          scrollHide={true}
-          disable={window.innerWidth < 640}
-        >
-          More Data
-        </ReactTooltip>
       </div>
     </>
   )

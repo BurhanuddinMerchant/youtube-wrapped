@@ -2,7 +2,7 @@ import { PlusCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 useState
 export default function MoreModal(props) {
-  const { title, data, error } = props
+  const { title, data, error, unit, field } = props
   const [showModal, setShowModal] = useState(false)
   return (
     <>
@@ -31,24 +31,31 @@ export default function MoreModal(props) {
                 </div>
                 {/*body*/}
                 <div className="relative flex-auto p-6">
-                  <p className=" text-md my-4 leading-relaxed text-gray-600">
+                  <p className=" text-md my-0 leading-relaxed text-gray-600">
                     {error ? (
                       <>{`${error}`}</>
                     ) : (
-                      <div className=" h-48 min-w-full overflow-scroll overflow-x-hidden sm:h-96">
-                        {Object.keys(data).map((field, i) => {
-                          return (
-                            <div
-                              key={i}
-                              className="mr-1 flex justify-between border-b-2 border-slate-100 p-2 text-center"
-                            >
-                              <div>{i + 1}</div>
-                              <div className="mx-5">{field}</div>
-                              <div>{data[field]}</div>
-                            </div>
-                          )
-                        })}
-                      </div>
+                      <>
+                        <div className="mr-1 flex justify-between border-b-0 border-slate-200 p-2 text-center font-bold">
+                          <div>Sr.</div>
+                          <div className="mx-5">{field}</div>
+                          <div>{unit}</div>
+                        </div>
+                        <div className=" h-48 min-w-full overflow-scroll overflow-x-hidden sm:h-96">
+                          {Object.keys(data).map((field, i) => {
+                            return (
+                              <div
+                                key={i}
+                                className="mr-1 flex justify-between border-b-2 border-slate-100 p-2 text-center"
+                              >
+                                <div>{i + 1}</div>
+                                <div className="mx-5">{field}</div>
+                                <div>{data[field]}</div>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </>
                     )}
                   </p>
                 </div>
