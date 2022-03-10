@@ -5,10 +5,12 @@ import DashNav from '../../components/DashNav.js'
 import Loading from '../../components/Loading.js'
 import StatsSection from '../../components/Stats.js'
 import Unwrapped from '../../components/UnWrapped.js'
+import VerifyEmail from '../../components/VerifyEmail.js'
 
 export default function DashBoard() {
   const router = useRouter()
   const [statsAvailable, setStatsAvailable] = useState(false)
+  const [isActiveUser, setIsActiveUser] = useState(false)
   const [userStats, setUserStats] = useState(null)
   const [username, setUsername] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -52,7 +54,8 @@ export default function DashBoard() {
           .then((response) => response.json())
           .then((result) => {
             if (result.data) {
-              setStatsAvailable(result.data.status)
+              setStatsAvailable(result.data.stats_status)
+              setIsActiveUser(result.data.is_active)
               if (result.data.status === true) {
                 fetch(
                   `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/stats`,
@@ -108,7 +111,13 @@ export default function DashBoard() {
           {statsAvailable && userStats ? (
             <StatsSection stats={userStats} />
           ) : (
-            <Unwrapped setStatsAvailable={setStatsAvailable} />
+            <>
+              {!isActiveUser ? (
+                <VerifyEmail />
+              ) : (
+                <Unwrapped setStatsAvailable={setStatsAvailable} />
+              )}
+            </>
           )}
         </>
       )}
