@@ -7,7 +7,6 @@ import StatsSection from '../../components/Stats.js'
 import Unwrapped from '../../components/UnWrapped.js'
 
 export default function DashBoard() {
-  const errorToast = (message) => toast.error(message)
   const router = useRouter()
   const [statsAvailable, setStatsAvailable] = useState(false)
   const [userStats, setUserStats] = useState(null)
@@ -38,7 +37,6 @@ export default function DashBoard() {
           setUsername(result.data.username)
         })
         .catch((e) => {
-          errorToast('An Error Occured')
           // console.log(e)
         })
       let user_stats = localStorage.getItem('userStats')
@@ -71,7 +69,6 @@ export default function DashBoard() {
                   })
                   .catch((error) => {
                     // console.log('error', error)
-                    errorToast('An Error Occured')
                     setLoading(false)
                   })
               } else {
@@ -84,7 +81,6 @@ export default function DashBoard() {
           })
           .catch((error) => {
             setLoading(false)
-            errorToast('An Error Occured')
             // console.log('error', error)
           })
       }
