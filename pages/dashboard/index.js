@@ -56,7 +56,7 @@ export default function DashBoard() {
             if (result.data) {
               setStatsAvailable(result.data.stats_status)
               setIsActiveUser(result.data.is_active)
-              if (result.data.status === true) {
+              if (result.data.stats_status === true) {
                 fetch(
                   `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/stats`,
                   requestOptions
