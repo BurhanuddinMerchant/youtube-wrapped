@@ -28,7 +28,7 @@ export default function DashBoard() {
         // console.log(e)
       }
       let user_stats = localStorage.getItem('userStats')
-      if (user_stats && JSON.parse(user_stats).username === username) {
+      if (user_stats) {
         setUserStats(JSON.parse(user_stats))
         setStatsAvailable(true)
         setLoading(false)
