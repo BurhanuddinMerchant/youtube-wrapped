@@ -16,14 +16,13 @@ export default function DashBoard() {
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    if (!sessionStorage.getItem('token')) {
-      errorToast('Please Login!')
+    if (!sessionStorage.getItem('access')) {
       router.push('/')
     } else {
       var myHeaders = new Headers()
       myHeaders.append(
         'Authorization',
-        `Bearer ${sessionStorage.getItem('token')}`
+        `Bearer ${sessionStorage.getItem('access')}`
       )
       var requestOptions = {
         method: 'GET',

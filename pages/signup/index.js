@@ -19,8 +19,8 @@ export default function SignUp() {
   const [isLoading, setLoading] = useState(false)
   useEffect(() => {
     if (
-      sessionStorage.getItem('token') &&
-      sessionStorage.getItem('token') !== undefined
+      sessionStorage.getItem('access') &&
+      sessionStorage.getItem('access') !== undefined
     ) {
       router.push('/dashboard')
     }
@@ -51,8 +51,9 @@ export default function SignUp() {
       .then((response) => response.text())
       .then((result) => {
         result = JSON.parse(result)
-        if (result.data.token) {
-          sessionStorage.setItem('token', result.data.token)
+        if (result.data.token.access && result.data.token.refresh) {
+          sessionStorage.setItem('access', result.data.access)
+          sessionStorage.setItem('refresh', result.data.refresh)
           setFormData({ username: '', password: '', email: '' })
           router.push('/dashboard')
         } else {

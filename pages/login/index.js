@@ -16,8 +16,8 @@ export default function Login() {
   const [isLoading, setLoading] = useState(false)
   useEffect(() => {
     if (
-      sessionStorage.getItem('token') &&
-      sessionStorage.getItem('token') !== undefined
+      sessionStorage.getItem('access') &&
+      sessionStorage.getItem('access') !== undefined
     ) {
       router.push('/dashboard')
     }
@@ -48,8 +48,9 @@ export default function Login() {
       .then((response) => response.text())
       .then((result) => {
         result = JSON.parse(result)
-        if (result.token) {
-          sessionStorage.setItem('token', result.token)
+        if (result.access && result.refresh) {
+          sessionStorage.setItem('access', result.access)
+          sessionStorage.setItem('refresh', result.refresh)
           setFormData(() => ({ ...formData, username: '', password: '' }))
           router.push('/dashboard')
         } else {

@@ -11,7 +11,7 @@ export default function Unwrapped(props) {
   const [doneUnWrapping, setDoneUnWrapping] = useState(false)
   useEffect(() => {
     setYTAccessToken(sessionStorage.getItem('yt_access_token'))
-    setAuthToken(sessionStorage.getItem('token'))
+    setAuthToken(sessionStorage.getItem('access'))
   }, [])
   useEffect(() => {
     if (doneUnWrapping) {

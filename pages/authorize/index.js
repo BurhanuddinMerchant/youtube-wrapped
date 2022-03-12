@@ -7,7 +7,7 @@ export default function Authorize() {
   const router = useRouter()
   useGoogle()
   useEffect(() => {
-    if (sessionStorage.getItem('token') === undefined) {
+    if (sessionStorage.getItem('access') === undefined) {
       router.push('/')
     }
   })

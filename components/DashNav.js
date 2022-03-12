@@ -5,7 +5,8 @@ import { useRouter } from 'next/router'
 export default function DashNav(props) {
   const { username } = props
   const handleSignOut = () => {
-    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('refresh')
+    sessionStorage.removeItem('access')
     localStorage.removeItem('userStats')
     sessionStorage.removeItem('yt_access_token')
     router.push('/')
