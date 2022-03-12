@@ -1,13 +1,11 @@
 import { HomeIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+import Logout from '../utils/Logout'
 export default function DashNav(props) {
   const { username } = props
   const handleSignOut = () => {
-    sessionStorage.removeItem('token')
-    localStorage.removeItem('userStats')
-    sessionStorage.removeItem('yt_access_token')
+    Logout()
     router.push('/')
   }
   const router = useRouter()

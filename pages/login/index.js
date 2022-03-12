@@ -8,16 +8,17 @@ import { Fade } from 'react-reveal'
 import NavBar from '../../components/Navbar'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import axios from 'axios'
 
 export default function Login() {
-  const errorToast = () => toast.error('An error occured')
+  const errorToast = (message) => toast.error(message)
   const router = useRouter()
   const [formData, setFormData] = useState({ username: '', password: '' })
   const [isLoading, setLoading] = useState(false)
   useEffect(() => {
     if (
-      sessionStorage.getItem('token') &&
-      sessionStorage.getItem('token') !== undefined
+      sessionStorage.getItem('access') &&
+      sessionStorage.getItem('access') !== undefined
     ) {
       router.push('/dashboard')
     }
@@ -25,43 +26,31 @@ export default function Login() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     setLoading(true)
     e.preventDefault()
 
-    var myHeaders = new Headers()
-    myHeaders.append('Content-Type', 'application/json')
-
-    var raw = JSON.stringify(formData)
-
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow',
+    try {
+      let data = JSON.stringify(formData)
+      let config = {
+        method: 'post',
+        url: `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/token`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: data,
+      }
+      let response = await axios(config)
+      setFormData(() => ({ ...formData, username: '', password: '' }))
+      sessionStorage.setItem('refresh', response.data.refresh)
+      sessionStorage.setItem('access', response.data.access)
+      router.push('/dashboard')
+      setLoading(false)
+    } catch (e) {
+      errorToast('Invalid Credentials')
+      setFormData(() => ({ ...formData, username: '', password: '' }))
+      setLoading(false)
     }
-
-    fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/login`,
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        result = JSON.parse(result)
-        if (result.token) {
-          sessionStorage.setItem('token', result.token)
-          setFormData(() => ({ ...formData, username: '', password: '' }))
-          router.push('/dashboard')
-        } else {
-          throw result
-        }
-        setLoading(false)
-      })
-      .catch((error) => {
-        setLoading(false)
-        errorToast()
-        setFormData({ ...formData, username: '', password: '' })
-      })
   }
   return (
     <>

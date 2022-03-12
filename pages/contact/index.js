@@ -34,7 +34,7 @@ export default function Contact() {
           name: '',
           message: '',
         })
-        console.log(result)
+        // console.log(result)
       })
       .catch((error) => {
         setFormState({
@@ -42,7 +42,7 @@ export default function Contact() {
           name: '',
           message: '',
         })
-        console.log('error', error)
+        // console.log('error', error)
       })
   }
   const handleChange = (e) => {
