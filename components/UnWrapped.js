@@ -27,7 +27,7 @@ export default function Unwrapped(props) {
     var data = { auth_token: YTAccessToken }
     var config = {
       method: 'post',
-      url: `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/test/generate`,
+      url: `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/generate`,
       data,
     }
     try {
