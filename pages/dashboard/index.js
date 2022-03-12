@@ -42,7 +42,7 @@ export default function DashBoard() {
           if (check_response.data.data.stats_status === true) {
             try {
               let stats_response = await axiosApiInstance.get(
-                `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/test/stats`
+                `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/stats`
               )
               setUserStats(stats_response.data.data)
               localStorage.setItem(
