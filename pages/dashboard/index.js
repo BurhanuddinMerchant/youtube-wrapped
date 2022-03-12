@@ -28,7 +28,7 @@ export default function DashBoard() {
         // console.log(e)
       }
       let user_stats = localStorage.getItem('userStats')
-      if (user_stats) {
+      if (user_stats && JSON.parse(user_stats).username === username) {
         setUserStats(JSON.parse(user_stats))
         setStatsAvailable(true)
         setLoading(false)
@@ -45,6 +45,7 @@ export default function DashBoard() {
                 `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/stats`
               )
               setUserStats(stats_response.data.data)
+              stats_response.data.data['username'] = username
               localStorage.setItem(
                 'userStats',
                 JSON.stringify(stats_response.data.data)
