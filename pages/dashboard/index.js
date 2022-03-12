@@ -6,7 +6,7 @@ import Loading from '../../components/Loading.js'
 import StatsSection from '../../components/Stats.js'
 import Unwrapped from '../../components/UnWrapped.js'
 import VerifyEmail from '../../components/VerifyEmail.js'
-
+import axiosApiInstance from '../../utils/axiosConfig.js'
 export default function DashBoard() {
   const router = useRouter()
   const [statsAvailable, setStatsAvailable] = useState(false)
@@ -14,77 +14,51 @@ export default function DashBoard() {
   const [userStats, setUserStats] = useState(null)
   const [username, setUsername] = useState(null)
   const [loading, setLoading] = useState(false)
-  useEffect(() => {
+  useEffect(async () => {
     setLoading(true)
     if (!sessionStorage.getItem('access')) {
       router.push('/')
     } else {
-      var myHeaders = new Headers()
-      myHeaders.append(
-        'Authorization',
-        `Bearer ${sessionStorage.getItem('access')}`
-      )
-      var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow',
+      try {
+        let response = await axiosApiInstance.get(
+          `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/profile`
+        )
+        setUsername(response.data.data.username)
+      } catch (e) {
+        console.log(e)
       }
-      fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/profile`,
-        requestOptions
-      )
-        .then((response) => response.json())
-        .then((result) => {
-          setUsername(result.data.username)
-        })
-        .catch((e) => {
-          // console.log(e)
-        })
       let user_stats = localStorage.getItem('userStats')
       if (user_stats) {
         setUserStats(JSON.parse(user_stats))
         setStatsAvailable(true)
         setLoading(false)
       } else {
-        fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/check`,
-          requestOptions
-        )
-          .then((response) => response.json())
-          .then((result) => {
-            if (result.data) {
-              setStatsAvailable(result.data.stats_status)
-              setIsActiveUser(result.data.is_active)
-              if (result.data.stats_status === true) {
-                fetch(
-                  `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/stats`,
-                  requestOptions
-                )
-                  .then((response) => response.json())
-                  .then((result) => {
-                    setUserStats(result.data)
-                    localStorage.setItem(
-                      'userStats',
-                      JSON.stringify(result.data)
-                    )
-                    setLoading(false)
-                  })
-                  .catch((error) => {
-                    // console.log('error', error)
-                    setLoading(false)
-                  })
-              } else {
-                setLoading(false)
-              }
-            } else {
+        try {
+          let check_response = await axiosApiInstance.get(
+            `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/check`
+          )
+          setStatsAvailable(check_response.data.data.stats_status)
+          setIsActiveUser(check_response.data.data.is_active)
+          if (check_response.data.data.stats_status === true) {
+            try {
+              let stats_response = await axiosApiInstance.get(
+                `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/test/stats`
+              )
+              setUserStats(stats_response.data.data)
+              localStorage.setItem(
+                'userStats',
+                JSON.stringify(stats_response.data.data)
+              )
               setLoading(false)
-              throw result
+            } catch (e) {
+              setLoading(false)
             }
-          })
-          .catch((error) => {
+          } else {
             setLoading(false)
-            // console.log('error', error)
-          })
+          }
+        } catch (e) {
+          setLoading(false)
+        }
       }
     }
   }, [statsAvailable])

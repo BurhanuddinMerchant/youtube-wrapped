@@ -1,6 +1,7 @@
 import { ExclamationIcon, ArrowCircleRightIcon } from '@heroicons/react/solid'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import axiosApiInstance from '../utils/axiosConfig'
 import ConditionalButton from './ConditionalButton'
 export default function Unwrapped(props) {
   const { setStatsAvailable } = props
@@ -18,41 +19,24 @@ export default function Unwrapped(props) {
       setStatsAvailable(true)
     }
   }, [])
-  const makeStatsGenerationAPICall = () => {
+  const makeStatsGenerationAPICall = async () => {
     setLoading(true)
     var myHeaders = new Headers()
     myHeaders.append('Authorization', `Bearer ${AuthToken}`)
     myHeaders.append('Content-Type', 'application/json')
-
-    var raw = JSON.stringify({
-      auth_token: YTAccessToken,
-    })
-
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow',
+    var data = { auth_token: YTAccessToken }
+    var config = {
+      method: 'post',
+      url: `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/test/generate`,
+      data,
     }
-
-    fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/generate`,
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        // console.log(result)
-      })
-      .then(() => {
-        setTimeout(() => {
-          setLoading(false)
-          setDoneUnWrapping(true)
-        }, 2000)
-      })
-      .catch((error) => {
-        setLoading(false)
-        // console.log('error', error)
-      })
+    try {
+      let response = await axiosApiInstance(config)
+      setDoneUnWrapping(true)
+      setLoading(false)
+    } catch (e) {
+      setLoading(false)
+    }
   }
   return (
     <div className=" flexlex-col justify-between">

@@ -8,8 +8,10 @@ import { Fade } from 'react-reveal'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import NavBar from '../../components/Navbar'
+import axios from 'axios'
+
 export default function SignUp() {
-  const errorToast = () => toast.error('An error occured')
+  const errorToast = (message) => toast.error(message)
   const router = useRouter()
   const [formData, setFormData] = useState({
     username: '',
@@ -28,44 +30,32 @@ export default function SignUp() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     setLoading(true)
     e.preventDefault()
+    try {
+      var data = JSON.stringify(formData)
 
-    var myHeaders = new Headers()
-    myHeaders.append('Content-Type', 'application/json')
-
-    var raw = JSON.stringify(formData)
-
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow',
+      var config = {
+        method: 'post',
+        url: `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/register`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: data,
+      }
+      let response = await axios(config)
+      response = response.data
+      setFormData(() => ({ ...formData, username: '', password: '' }))
+      sessionStorage.setItem('refresh', response.data.token.refresh)
+      sessionStorage.setItem('access', response.data.token.access)
+      router.push('/dashboard')
+      setLoading(false)
+    } catch (e) {
+      setLoading(false)
+      errorToast('Username/Email Already in use')
+      setFormData({ username: '', password: '', email: '' })
     }
-
-    fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/register`,
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        result = JSON.parse(result)
-        if (result.data.token.access && result.data.token.refresh) {
-          sessionStorage.setItem('access', result.data.access)
-          sessionStorage.setItem('refresh', result.data.refresh)
-          setFormData({ username: '', password: '', email: '' })
-          router.push('/dashboard')
-        } else {
-          throw result
-        }
-        setLoading(false)
-      })
-      .catch((error) => {
-        setLoading(false)
-        errorToast()
-        setFormData({ username: '', password: '', email: '' })
-      })
   }
   return (
     <>
