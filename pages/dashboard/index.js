@@ -45,7 +45,9 @@ export default function DashBoard() {
                 `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/stats`
               )
               setUserStats(stats_response.data.data)
-              stats_response.data.data['username'] = username
+              if (username) {
+                stats_response.data.data['username'] = username
+              }
               localStorage.setItem(
                 'userStats',
                 JSON.stringify(stats_response.data.data)
