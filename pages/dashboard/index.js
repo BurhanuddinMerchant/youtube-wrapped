@@ -25,7 +25,7 @@ export default function DashBoard() {
         )
         setUsername(response.data.data.username)
       } catch (e) {
-        console.log(e)
+        // console.log(e)
       }
       let user_stats = localStorage.getItem('userStats')
       if (user_stats) {
