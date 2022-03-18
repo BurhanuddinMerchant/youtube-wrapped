@@ -22,3 +22,6 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(220 38 38);
   }
+  .react-chatbot-kit-chat-btn-send-icon {
+  margin:auto
+  }
