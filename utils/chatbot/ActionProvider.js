@@ -16,7 +16,8 @@ class ActionProvider {
   }
   handleUnknown() {
     const message = this.createChatbotMessage(
-      'I am not able to understand, please connect with the developers in the Contact section'
+      'I am not able to understand, please connect with the developers in the Contact section',
+      { widget: 'anchorMessage' }
     )
     this.setState((prev) => ({
       ...prev,
