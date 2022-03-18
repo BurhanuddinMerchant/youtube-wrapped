@@ -54,6 +54,16 @@ class ActionProvider {
       messages: [...prev.messages, message],
     }))
   }
+  handleTutorial() {
+    const message = this.createChatbotMessage(
+      'Here is a quick walk through video',
+      { widget: 'tutorialMessage' }
+    )
+    this.setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+    }))
+  }
 }
 
 export default ActionProvider

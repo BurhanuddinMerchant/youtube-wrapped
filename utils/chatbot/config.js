@@ -3,6 +3,7 @@ import { LinkMessage } from './custom/LinkMessage'
 import { AnchorMessage } from './custom/AnchorMessage'
 import { CreatorMessage } from './custom/CreatorMessage'
 import { AboutMessage } from './custom/AboutMessage'
+import { TutorialMessage } from './custom/TutorialMessage'
 const botName = 'YTWBot'
 
 const config = {
@@ -32,6 +33,10 @@ const config = {
     {
       widgetName: 'aboutMessage',
       widgetFunc: (props) => <AboutMessage {...props} />,
+    },
+    {
+      widgetName: 'tutorialMessage',
+      widgetFunc: (props) => <TutorialMessage {...props} />,
     },
   ],
 }

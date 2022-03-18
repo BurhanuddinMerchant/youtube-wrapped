@@ -25,6 +25,13 @@ export default class MessageParser {
       this.actionProvider.handleCreatorQuery()
     } else if (matchString(['what', 'how', 'where', 'project'], message)) {
       this.actionProvider.handleProjectQuery()
+    } else if (
+      matchString(
+        ['use', 'tutorial', 'help', 'explore', 'walk through', 'how to'],
+        message
+      )
+    ) {
+      this.actionProvider.handleTutorial()
     } else {
       this.actionProvider.handleUnknown()
     }
