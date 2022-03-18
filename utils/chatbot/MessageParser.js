@@ -7,6 +7,8 @@ export default class MessageParser {
   parse(message) {
     if (message.includes('hello')) {
       this.actionProvider.handleHello()
+    } else {
+      this.actionProvider.handleUnknown()
     }
   }
 }
