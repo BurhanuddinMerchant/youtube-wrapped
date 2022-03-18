@@ -1,5 +1,5 @@
 import { createChatBotMessage } from 'react-chatbot-kit'
-
+import { AnchorMessage } from './custom/AnchorMessage'
 const botName = 'YTWBot'
 
 const config = {
@@ -13,6 +13,12 @@ const config = {
       backgroundColor: '#dc2626',
     },
   },
+  widgets: [
+    {
+      widgetName: 'anchorMessage',
+      widgetFunc: (props) => <AnchorMessage {...props} />,
+    },
+  ],
 }
 
 export default config
