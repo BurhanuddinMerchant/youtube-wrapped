@@ -58,7 +58,7 @@ export default function Home() {
               className="h-20 w-20 cursor-pointer rounded-full bg-red-500 p-2 hover:bg-red-400"
               onClick={() => setShowChatBox(true)}
             >
-              <img src={ChatBotIcon.src} />
+              <img src={ChatBotIcon.src} alt="chatbot" />
             </div>
           )}
         </div>

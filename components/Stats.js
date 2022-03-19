@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
+import BarGraph from './BarGraph'
 import ComparisonCard from './ComparisonCard'
 import TopThreeCard from './TopThreeCard'
+import GraphIcon from '../assets/images/graph.png'
+import { ExclamationIcon } from '@heroicons/react/solid'
+
 export default function StatsSection(props) {
   const { stats } = props
   const [processedData, setProcessedData] = useState(null)
   useEffect(() => {
     setProcessedData({ ...getProcessedStats(stats) })
     // console.log(processedData)
-    // console.log(stats)
   }, [])
   return (
     <>
@@ -62,6 +65,73 @@ export default function StatsSection(props) {
                     }}
                   />
                 </>
+              )
+            })
+          : ''}
+      </div>
+      <hr className="h-1 bg-slate-300" />
+      <div>
+        <div className="mt-7 flex justify-center ">
+          <img src={GraphIcon.src} className="w-16" alt="graph" />
+          <h1 className=" my-auto ml-2 text-5xl font-medium">Data Graphs</h1>
+        </div>
+        <div className="m-10 w-fit  rounded-md bg-red-100 p-10 text-center shadow-md md:hidden">
+          <div className="mx-auto mb-2 flex w-fit">
+            <p className="my-auto w-fit text-center text-xl font-bold text-red-500">
+              Caution
+            </p>
+            <ExclamationIcon className="h-7 w-7 text-red-500" />
+          </div>
+          This Feature Is Only Accessible On Desktops, please Switch to a
+          desktop in order to view this content
+        </div>
+        {processedData
+          ? Object.keys(processedData).map((key, id) => {
+              if (key == 'duration') {
+                return <></>
+              }
+              const listToObj = (list) => {
+                let obj = {}
+                list.map((k) => {
+                  if (k['value'] !== -1) {
+                    obj[k['key']] = k['value']
+                  }
+                })
+                return obj
+              }
+              return (
+                <div className="hidden w-full md:block" key={id}>
+                  <div className="flex border-b-2 border-slate-300 py-10">
+                    <div className="w-1/2">
+                      <BarGraph
+                        dataObj={listToObj(processedData[key]['liked'])}
+                        label={`Top 3 Liked ${processedData[key]['title_helper']}`}
+                        borderColor="green"
+                        bgColor="lightgreen"
+                      />
+                    </div>
+                    <div className="w-1/2">
+                      <BarGraph
+                        dataObj={listToObj(processedData[key]['disliked'])}
+                        label={`Top 3 Disiked ${processedData[key]['title_helper']}`}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full border-b-2  border-slate-300 py-10">
+                    <BarGraph
+                      dataObj={processedData[key]['all_liked']}
+                      label={`All Liked ${processedData[key]['title_helper']}`}
+                      borderColor="green"
+                      bgColor="lightgreen"
+                    />
+                  </div>
+                  <div className="w-full border-b-2  border-slate-300 py-10">
+                    <BarGraph
+                      dataObj={processedData[key]['all_disliked']}
+                      label={`All Disiked ${processedData[key]['title_helper']}`}
+                    />
+                  </div>
+                </div>
               )
             })
           : ''}
