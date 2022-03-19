@@ -4,6 +4,7 @@ import ComparisonCard from './ComparisonCard'
 import TopThreeCard from './TopThreeCard'
 import GraphIcon from '../assets/images/graph.png'
 import { ExclamationIcon } from '@heroicons/react/solid'
+// import LineGraph from './LineGraph'
 
 export default function StatsSection(props) {
   const { stats } = props
