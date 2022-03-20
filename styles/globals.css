@@ -26,3 +26,7 @@
   .react-chatbot-kit-chat-btn-send-icon {
   margin:auto
   }
+  .grecaptcha-badge { 
+    opacity: 0;
+    left:0
+  }
