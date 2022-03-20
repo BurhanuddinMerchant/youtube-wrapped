@@ -4,6 +4,7 @@ import ComparisonCard from './ComparisonCard'
 import TopThreeCard from './TopThreeCard'
 import GraphIcon from '../assets/images/graph.png'
 import { ExclamationIcon } from '@heroicons/react/solid'
+import PieChart from './PieChart'
 // import LineGraph from './LineGraph'
 
 export default function StatsSection(props) {
@@ -11,7 +12,7 @@ export default function StatsSection(props) {
   const [processedData, setProcessedData] = useState(null)
   useEffect(() => {
     setProcessedData({ ...getProcessedStats(stats) })
-    // console.log(processedData)
+    console.log(getProcessedStats(stats))
   }, [])
   return (
     <>
@@ -136,6 +137,33 @@ export default function StatsSection(props) {
               )
             })
           : ''}
+        <div className="flex flex-wrap justify-center">
+          {processedData
+            ? Object.keys(processedData).map((key, id) => {
+                if (key == 'duration') {
+                  return <></>
+                }
+                return (
+                  <div
+                    className="hidden w-1/4 border-b-2 border-slate-300  py-10 md:block"
+                    key={id}
+                  >
+                    <div className="">
+                      <PieChart
+                        dataList={[
+                          processedData[key]['total_liked'],
+                          processedData[key]['total_disliked'],
+                        ]}
+                        label={`Liked vs Disliked ${processedData[key]['title_helper']}`}
+                        labels={['Liked', 'Disliked']}
+                      />
+                      <div className="mt-2 text-center font-normal text-slate-500">{`Liked vs Disliked ${processedData[key]['title_helper']}`}</div>
+                    </div>
+                  </div>
+                )
+              })
+            : ''}
+        </div>
       </div>
     </>
   )
@@ -168,6 +196,13 @@ const getTopThreeFromDataObject = (items) => {
   }
   return result
 }
+const getTotal = (items) => {
+  let total = 0
+  for (let key in items) {
+    total += items[key]
+  }
+  return total
+}
 const getProcessedStats = (stats) => {
   const processedData = {
     channelTitle: {
@@ -180,6 +215,8 @@ const getProcessedStats = (stats) => {
       unit_liked: 'Likes',
       unit_disliked: 'Dislikes',
       field: 'Channel Title',
+      total_liked: 0,
+      total_disliked: 0,
     },
     topic: {
       liked: {},
@@ -191,6 +228,8 @@ const getProcessedStats = (stats) => {
       unit_liked: 'Likes',
       unit_disliked: 'Dislikes',
       field: 'Topic',
+      total_liked: 0,
+      total_disliked: 0,
     },
     tags: {
       liked: {},
@@ -202,6 +241,8 @@ const getProcessedStats = (stats) => {
       unit_liked: 'Likes',
       unit_disliked: 'Dislikes',
       field: 'Tag',
+      total_liked: 0,
+      total_disliked: 0,
     },
     language: {
       liked: {},
@@ -213,6 +254,8 @@ const getProcessedStats = (stats) => {
       unit_liked: 'Likes',
       unit_disliked: 'Dislikes',
       field: 'Language',
+      total_liked: 0,
+      total_disliked: 0,
     },
     duration_per_channel: {
       liked: {},
@@ -224,6 +267,8 @@ const getProcessedStats = (stats) => {
       unit_liked: 'Secs',
       unit_disliked: 'Secs',
       field: 'Channel Title',
+      total_liked: 0,
+      total_disliked: 0,
     },
     duration_per_language: {
       liked: {},
@@ -235,6 +280,8 @@ const getProcessedStats = (stats) => {
       unit_liked: 'Secs',
       unit_disliked: 'Secs',
       field: 'Language',
+      total_liked: 0,
+      total_disliked: 0,
     },
     duration_per_topic: {
       liked: {},
@@ -246,6 +293,8 @@ const getProcessedStats = (stats) => {
       unit_liked: 'Secs',
       unit_disliked: 'Secs',
       field: 'Topic',
+      total_liked: 0,
+      total_disliked: 0,
     },
   }
   for (let data_point in processedData) {
@@ -257,6 +306,12 @@ const getProcessedStats = (stats) => {
     )
     processedData[data_point]['all_liked'] = stats[data_point]['liked']
     processedData[data_point]['all_disliked'] = stats[data_point]['disliked']
+    processedData[data_point]['total_liked'] = getTotal(
+      stats[data_point]['liked']
+    )
+    processedData[data_point]['total_disliked'] = getTotal(
+      stats[data_point]['disliked']
+    )
   }
   processedData['duration'] = stats['duration']
   return processedData
