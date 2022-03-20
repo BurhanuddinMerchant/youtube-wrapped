@@ -14,7 +14,7 @@ export default function PieChart(props) {
         label,
         data: dataList,
         backgroundColor: ['lightgreen', 'rgba(255, 99, 132, 0.5)'],
-        borderColor: ['green', 'red'],
+        borderColor: ['green', 'rgb(255, 99, 132)'],
         borderWidth: 1,
       },
     ],
