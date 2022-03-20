@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ArrowCircleUpIcon } from '@heroicons/react/solid'
 
 const ScrollButton = () => {
@@ -19,8 +19,9 @@ const ScrollButton = () => {
       behavior: 'smooth',
     })
   }
-
-  window.addEventListener('scroll', toggleVisible)
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisible)
+  }, [])
 
   return (
     <button
