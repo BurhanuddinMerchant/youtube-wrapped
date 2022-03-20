@@ -6,7 +6,6 @@ ChartJS.register(ArcElement, Tooltip, Legend)
 
 export default function PieChart(props) {
   const { labels, dataList, label } = props
-  console.log(label)
   const data = {
     labels,
     datasets: [

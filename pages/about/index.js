@@ -166,9 +166,9 @@ export default function About() {
                   and also improve upon my Front-End development skills (UI and
                   Design), and at the same time wanted to do something related
                   to Cloud and DevOps, so when I randomly came up with a
-                  meaningful and fun (according to me XD) problem statement, all
-                  of the desires listed above just fell into place, and I
-                  started to work on what you are seeing right now.
+                  meaningful and fun problem statement, all of the desires
+                  listed above just fell into place, and I started working on
+                  what you are seeing right now.
                 </p>
                 <hr className="mt-5" />
                 <p className="mt-5">
