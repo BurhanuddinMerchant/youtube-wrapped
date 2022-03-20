@@ -10,8 +10,10 @@ import MessageParser from '../utils/chatbot/MessageParser'
 import ActionProvider from '../utils/chatbot/ActionProvider'
 import ChatBotIcon from '../assets/images/chatbot.png'
 import { useState } from 'react'
+import useAnalytics from '../hooks/useAnalytics'
 export default function Home() {
   const [showChatBot, setShowChatBox] = useState(false)
+  useAnalytics()
   return (
     <>
       <Head>
