@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import NavBar from '../../components/Navbar'
 import axios from 'axios'
+import { loadScript } from '../../utils/loadScript'
 
 export default function SignUp() {
   const errorToast = (message) => toast.error(message)
@@ -19,6 +20,11 @@ export default function SignUp() {
     email: '',
   })
   const [isLoading, setLoading] = useState(false)
+  useEffect(async () => {
+    const res = await loadScript(
+      `https://www.google.com/recaptcha/api.js?render=${process.env['NEXT_PUBLIC_RECAPTCHA_SITE_KEY']}`
+    )
+  }, [])
   useEffect(() => {
     if (
       sessionStorage.getItem('access') &&
@@ -30,9 +36,33 @@ export default function SignUp() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
-  const handleSubmit = async (e) => {
+  const Validate = (callback, error) => {
+    try {
+      grecaptcha.ready(async function () {
+        const token = await grecaptcha.execute(
+          process.env['NEXT_PUBLIC_RECAPTCHA_SITE_KEY'],
+          {
+            action: 'submit',
+          }
+        )
+        const verified = await fetch(
+          `${process.env['NEXT_PUBLIC_SERVER_BASE_URL']}/api/recaptcha?token=${token}`
+        )
+          .then((res) => res.json())
+          .then((resp) => resp['verified'])
+        if (verified) {
+          callback()
+        } else {
+          error()
+        }
+      })
+    } catch (err) {
+      error()
+    }
+  }
+  const handleSubmit = async () => {
     setLoading(true)
-    e.preventDefault()
+    // e.preventDefault()
     try {
       var data = JSON.stringify(formData)
 
@@ -56,6 +86,14 @@ export default function SignUp() {
       errorToast('Username/Email Already in use')
       setFormData({ username: '', password: '', email: '' })
     }
+  }
+  const handlePreSubmit = (e) => {
+    e.preventDefault()
+    setLoading(true)
+    Validate(handleSubmit, () => {
+      errorToast('Recaptcha Failed')
+      setLoading(false)
+    })
   }
   return (
     <>
@@ -86,7 +124,7 @@ export default function SignUp() {
                   onClick={() => router.push('/')}
                 />
               </div>
-              <form className=" flex flex-col " onSubmit={handleSubmit}>
+              <form className=" flex flex-col " onSubmit={handlePreSubmit}>
                 <input
                   type="text"
                   placeholder="Enter Username"
