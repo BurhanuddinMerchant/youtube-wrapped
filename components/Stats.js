@@ -5,6 +5,7 @@ import TopThreeCard from './TopThreeCard'
 import GraphIcon from '../assets/images/graph.png'
 import { ExclamationIcon } from '@heroicons/react/solid'
 import PieChart from './PieChart'
+import ScrollButton from './ScrollUp'
 // import LineGraph from './LineGraph'
 
 export default function StatsSection(props) {
@@ -165,6 +166,7 @@ export default function StatsSection(props) {
             : ''}
         </div>
       </div>
+      <ScrollButton />
     </>
   )
 }

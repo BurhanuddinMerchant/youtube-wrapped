@@ -7,6 +7,7 @@ import meSVG from '../../assets/images/me.svg'
 import projectSVG from '../../assets/images/project.svg'
 import { CodeIcon, MusicNoteIcon } from '@heroicons/react/solid'
 import NavBar from '../../components/Navbar'
+import ScrollButton from '../../components/ScrollUp'
 
 export default function About() {
   return (
@@ -184,6 +185,7 @@ export default function About() {
           </div>
         </Zoom>
       </div>
+      <ScrollButton />
     </>
   )
 }
