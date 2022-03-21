@@ -72,7 +72,7 @@ export default function StatsSection(props) {
             })
           : ''}
       </div>
-      <hr className="h-1 bg-slate-300" />
+      <hr />
       <div>
         <div className="mt-7 flex justify-center ">
           <img src={GraphIcon.src} className="w-16" alt="graph" />
@@ -104,8 +104,9 @@ export default function StatsSection(props) {
               }
               return (
                 <div className="hidden w-full md:block" key={id}>
-                  <div className="flex border-b-2 border-slate-300 py-10">
-                    <div className="w-1/2">
+                  <div className="m-5 mx-auto box-border w-2/3 cursor-pointer rounded-lg bg-slate-100 shadow-lg hover:bg-slate-100 ">
+                    <div className="rounded-t-lg bg-red-400 p-3 text-2xl">{`Top 3 Liked ${processedData[key]['title_helper']}`}</div>
+                    <div className="p-10">
                       <BarGraph
                         dataObj={listToObj(processedData[key]['liked'])}
                         label={`Top 3 Liked ${processedData[key]['title_helper']}`}
@@ -113,26 +114,35 @@ export default function StatsSection(props) {
                         bgColor="lightgreen"
                       />
                     </div>
-                    <div className="w-1/2">
+                  </div>
+                  <div className="m-5 mx-auto box-border w-2/3 cursor-pointer rounded-lg bg-slate-100 shadow-lg hover:bg-slate-100">
+                    <div className="rounded-t-lg bg-red-400 p-3 text-2xl">{`Top 3 Disiked ${processedData[key]['title_helper']}`}</div>
+                    <div className="p-10">
                       <BarGraph
                         dataObj={listToObj(processedData[key]['disliked'])}
                         label={`Top 3 Disiked ${processedData[key]['title_helper']}`}
                       />
                     </div>
                   </div>
-                  <div className="w-full border-b-2  border-slate-300 py-10">
-                    <BarGraph
-                      dataObj={processedData[key]['all_liked']}
-                      label={`All Liked ${processedData[key]['title_helper']}`}
-                      borderColor="green"
-                      bgColor="lightgreen"
-                    />
+                  <div className="m-5 mx-auto box-border w-2/3 cursor-pointer rounded-lg bg-slate-100 shadow-lg hover:bg-slate-100">
+                    <div className="rounded-t-lg bg-red-400 p-3 text-2xl">{`All Liked ${processedData[key]['title_helper']}`}</div>
+                    <div className="p-10">
+                      <BarGraph
+                        dataObj={processedData[key]['all_liked']}
+                        label={`All Liked ${processedData[key]['title_helper']}`}
+                        borderColor="green"
+                        bgColor="lightgreen"
+                      />
+                    </div>
                   </div>
-                  <div className="w-full border-b-2  border-slate-300 py-10">
-                    <BarGraph
-                      dataObj={processedData[key]['all_disliked']}
-                      label={`All Disiked ${processedData[key]['title_helper']}`}
-                    />
+                  <div className="m-5 mx-auto box-border w-2/3 cursor-pointer rounded-lg bg-slate-100 shadow-lg hover:bg-slate-100">
+                    <div className="rounded-t-lg bg-red-400 p-3 text-2xl">{`All Disiked ${processedData[key]['title_helper']}`}</div>
+                    <div className="p-10">
+                      <BarGraph
+                        dataObj={processedData[key]['all_disliked']}
+                        label={`All Disiked ${processedData[key]['title_helper']}`}
+                      />
+                    </div>
                   </div>
                 </div>
               )
@@ -146,10 +156,12 @@ export default function StatsSection(props) {
                 }
                 return (
                   <div
-                    className="hidden w-1/4 border-b-2 border-slate-300  py-10 md:block"
+                    className="m-5 box-border hidden w-1/4  bg-slate-100 shadow-lg md:block"
                     key={id}
                   >
-                    <div className="">
+                    <div className="rounded-t-lg bg-red-400 p-3 text-2xl">{`${processedData[key]['title_helper']}`}</div>
+
+                    <div className="p-5">
                       <PieChart
                         dataList={[
                           processedData[key]['total_liked'],
@@ -158,7 +170,6 @@ export default function StatsSection(props) {
                         label={`Liked vs Disliked ${processedData[key]['title_helper']}`}
                         labels={['Liked', 'Disliked']}
                       />
-                      <div className="mt-2 text-center font-normal text-slate-500">{`Liked vs Disliked ${processedData[key]['title_helper']}`}</div>
                     </div>
                   </div>
                 )
