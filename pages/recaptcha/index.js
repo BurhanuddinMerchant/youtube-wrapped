@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { loadScript } from '../../utils/loadScript'
-export default function () {
+export default function Recaptcha() {
   const [isHuman, setIsHuman] = useState(false)
   useEffect(async () => {
     const res = await loadScript(
