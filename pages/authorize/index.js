@@ -18,6 +18,10 @@ export default function Authorize() {
         <Image src={youtubeSVG} className="mx-auto w-1/2" />
         <p className="text-center font-medium">
           Please Authorize the app (Enable Popups!)
+          <div>
+            Tick The <b>YouTube</b> Access scope
+          </div>
+          <div>If you forgot to do it, Reload!</div>
         </p>
       </div>
     </>
