@@ -16,9 +16,16 @@ export default function Authorize() {
     <>
       <div className="flex h-screen animate-pulse flex-col  justify-center bg-red-100">
         <Image src={youtubeSVG} className="mx-auto w-1/2" />
-        <p className="text-center font-medium">
-          Please Authorize the app (Enable Popups!)
-        </p>
+        <div className="mx-auto p-5 text-center text-sm font-medium">
+          <div>
+            Please Tick The <b>YouTube</b> Access scope This Time
+          </div>
+          <div>
+            You have been redirected here as you forgot to provide the{' '}
+            <b>right access</b> or you <b>closed</b> the popup
+          </div>
+          <div>Make Sure Popups are enabled in your browser</div>
+        </div>
       </div>
     </>
   )
