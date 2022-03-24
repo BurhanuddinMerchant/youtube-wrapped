@@ -10,19 +10,22 @@ export default function Recaptcha() {
     }
   }, [])
   function handleClick() {
-    window.grecaptcha.ready(async function () {
-      window.grecaptcha
-        .execute(process.env['NEXT_PUBLIC_RECAPTCHA_SITE_KEY'], {
-          action: 'submit',
-        })
-        .then(async (token) => {
-          let response = await fetch(
-            `${process.env['NEXT_PUBLIC_SERVER_BASE_URL']}/api/recaptcha?token=${token}`
-          )
-          response = await response.json()
-          setIsHuman(response['verified'])
-        })
-    })
+    if (window.grecaptcha) {
+      window.grecaptcha.ready(async function () {
+        window.grecaptcha
+          .execute(process.env['NEXT_PUBLIC_RECAPTCHA_SITE_KEY'], {
+            action: 'submit',
+          })
+          .then(async (token) => {
+            let response = await fetch(
+              `${process.env['NEXT_PUBLIC_SERVER_BASE_URL']}/api/recaptcha?token=${token}`
+            )
+            response = await response.json()
+            setIsHuman(response['verified'])
+          })
+      })
+    } else {
+    }
   }
   return (
     <>
