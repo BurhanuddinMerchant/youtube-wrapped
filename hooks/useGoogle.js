@@ -13,12 +13,28 @@ export default function useGoogle() {
           .then(
             authenticate()
               .then(loadClient)
-              .then(() => {
-                sessionStorage.setItem(
-                  'yt_access_token',
-                  window.gapi.client.getToken().access_token
+              .then(async () => {
+                const access_token = window.gapi.client.getToken().access_token
+
+                fetch(
+                  `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${access_token}`
                 )
-                router.push('/dashboard')
+                  .then((resp) => resp.json())
+                  .then((resp) => {
+                    if (
+                      resp.scope.includes(
+                        'https://www.googleapis.com/auth/youtube.readonly'
+                      )
+                    ) {
+                      sessionStorage.setItem(
+                        'yt_access_token',
+                        window.gapi.client.getToken().access_token
+                      )
+                      router.push('/dashboard')
+                    } else {
+                    }
+                  })
+                  .catch((e) => console.log(e))
               })
           )
           .catch((e) => {
