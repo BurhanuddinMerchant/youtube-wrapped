@@ -32,13 +32,17 @@ export default function useGoogle() {
                       )
                       router.push('/dashboard')
                     } else {
+                      throw 'Scope Not Granted'
                     }
                   })
-                  .catch((e) => console.log(e))
+                  .catch((e) => {
+                    router.push('/reauthorize')
+                  })
               })
           )
           .catch((e) => {
             // console.log(e)
+            router.push('/reauthorize')
           })
       })
 
