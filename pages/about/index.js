@@ -72,7 +72,7 @@ export default function About() {
                 <div className="mx-auto mt-5 w-fit">
                   <iframe
                     className=" sm:h-52 sm:w-96"
-                    src="https://www.youtube.com/embed/i0stGfnvdlg"
+                    src="https://www.youtube.com/embed/V7JnDTsLDbk"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
