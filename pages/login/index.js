@@ -49,6 +49,9 @@ export default function Login() {
         )
           .then((res) => res.json())
           .then((resp) => resp['verified'])
+          .catch((e) => {
+            throw 'An error Occured'
+          })
         if (verified) {
           callback()
         } else {
@@ -169,6 +172,20 @@ export default function Login() {
         </div>
         <ToastContainer />
       </div>
+      <script
+        data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="burhanuddin"
+        data-description="Support me on Buy me a coffee!"
+        data-message="Thank You For Visiting and Supporting me!"
+        data-color="#FF5F5F"
+        data-bg="#ff0000"
+        data-position="left"
+        data-x_margin="20"
+        data-y_margin="20"
+        async={true}
+      ></script>
     </>
   )
 }
