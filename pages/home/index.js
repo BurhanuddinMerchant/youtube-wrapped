@@ -1,7 +1,7 @@
 import NavBar from '../../components/Navbar'
 import Head from 'next/head'
 
-export default function () {
+export default function Home() {
   return (
     <>
       <div className="h-full bg-red-100">
