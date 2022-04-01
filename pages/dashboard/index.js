@@ -21,7 +21,7 @@ export default function DashBoard() {
     } else {
       try {
         let response = await axiosApiInstance.get(
-          `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/profile`
+          `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/profile/name`
         )
         setUsername(response.data.data.username)
       } catch (e) {
