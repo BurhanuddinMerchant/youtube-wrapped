@@ -1,16 +1,41 @@
 import { ArrowCircleLeftIcon } from '@heroicons/react/solid'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axiosApiInstance from '../../utils/axiosConfig'
 
 export default function Profile() {
   const router = useRouter()
-  useEffect(() => {
-    // if (!sessionStorage.getItem('access')) {
-    //   router.push('/')
-    // }
+  const [data, setData] = useState({
+    username: '',
+    email: '',
+    active: '',
+    stats: '',
+    joined: '',
   })
+  useEffect(() => {
+    if (!sessionStorage.getItem('access')) {
+      router.push('/')
+    }
+  })
+  useEffect(async () => {
+    try {
+      let profile = await axiosApiInstance.get(
+        `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/profile`
+      )
+      profile = profile.data.user
+      setData({
+        ...data,
+        username: profile.username,
+        email: profile.email,
+        active: profile.is_active,
+        stats: profile.are_stats_generated,
+        joined: profile.date_joined,
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }, [])
   return (
     <>
       <Head>
@@ -48,7 +73,7 @@ export default function Profile() {
             <div className="mx-auto flex w-1/3 justify-between">
               <div className="my-auto">Name:</div>
               <input
-                value={'Burhanuddin'}
+                value={data.username}
                 disabled
                 className="mt-2 bg-red-200 p-1"
               />
@@ -56,7 +81,7 @@ export default function Profile() {
             <div className="mx-auto mt-2 flex w-1/3 justify-between">
               <div className="my-auto">Email : </div>
               <input
-                value={'bmerchant945@gmail.com'}
+                value={data.email}
                 disabled
                 className="mt-2 bg-red-200 p-1"
               />
@@ -66,7 +91,7 @@ export default function Profile() {
               <input
                 disabled
                 type="checkbox"
-                checked={true}
+                checked={data.active}
                 className="my-auto bg-red-200 p-1"
               />
             </div>
@@ -75,7 +100,7 @@ export default function Profile() {
               <input
                 disabled
                 type="checkbox"
-                checked={true}
+                checked={data.stats}
                 className="my-auto p-1"
               />
             </div>
@@ -84,7 +109,7 @@ export default function Profile() {
               <input
                 disabled
                 type="date"
-                value={'2022-03-12'}
+                value={data.joined.split('T')[0]}
                 className="my-auto bg-red-200 p-1"
               />
             </div>
