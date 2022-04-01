@@ -11,11 +11,18 @@ export default function DashNav(props) {
   const router = useRouter()
   return (
     <div className="flex w-full flex-col  justify-between bg-gray-700 p-3 sm:flex-row">
-      <div className=" text-center">
-        <h2 className=" mx-auto cursor-default text-xl font-semibold text-red-400">
-          Welcome To Youtube Wrapped {username} !
+      <div
+        className=" mx-auto flex w-fit rounded-full bg-gray-900 px-2 hover:cursor-pointer hover:bg-gray-800 sm:mx-0"
+        onClick={() => router.push('/profile')}
+      >
+        <div className="h-10 w-10 rounded-full bg-white p-2">
+          <img src="https://avatars.dicebear.com/api/human/love.svg" />
+        </div>
+        <h2 className="my-auto ml-1 cursor-default text-xl font-semibold text-red-400">
+          {username}
         </h2>
       </div>
+
       <div className="mx-auto flex w-fit sm:mx-0">
         <HomeIcon
           className="my-auto mt-2 mr-2 h-8 w-8 cursor-pointer text-red-400 hover:text-white sm:my-auto"
