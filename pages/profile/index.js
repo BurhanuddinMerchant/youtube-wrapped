@@ -76,7 +76,7 @@ export default function Profile() {
                 src={`https://avatars.dicebear.com/api/human/${data.username}.svg`}
               />
             </div>
-            <h2 className="my-auto ml-1 cursor-default text-xl font-semibold text-red-400">
+            <h2 className="my-auto ml-1 text-xl font-semibold text-red-400">
               Profile
             </h2>
           </div>
