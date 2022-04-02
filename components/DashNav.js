@@ -16,7 +16,7 @@ export default function DashNav(props) {
         onClick={() => router.push('/profile')}
       >
         <div className="h-10 w-10 rounded-full bg-white p-2">
-          <img src="https://avatars.dicebear.com/api/human/love.svg" />
+          <img src={`https://avatars.dicebear.com/api/human/${username}.svg`} />
         </div>
         <h2 className="my-auto ml-1 cursor-default text-xl font-semibold text-red-400">
           {username}
