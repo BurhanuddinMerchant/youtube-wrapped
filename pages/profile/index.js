@@ -70,7 +70,7 @@ export default function Profile() {
           >
             <ArrowCircleLeftIcon className="rounded-ful h-10 w-10 cursor-pointer text-red-500 hover:text-red-400" />
           </div>
-          <div className="flex">
+          <div className=" flex w-fit rounded-full bg-gray-900 px-2 hover:cursor-pointer hover:bg-gray-800 sm:mx-0">
             <div className="h-10 w-10 rounded-full bg-red-50 p-2">
               <img
                 src={`https://avatars.dicebear.com/api/human/${data.username}.svg`}
@@ -89,23 +89,23 @@ export default function Profile() {
             />
           </div>
           <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
-            <div className="my-auto w-1/2 ">Name:</div>
+            <div className="my-auto w-1/4  ">Name:</div>
             <input
               value={data.username}
               disabled
-              className="w-1/2 rounded-xl bg-red-200 p-2"
+              className="w-3/4 rounded-xl bg-red-200 p-2 text-center"
             />
           </div>
           <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
-            <div className="my-auto w-1/2">Email : </div>
+            <div className="my-auto w-1/4 ">Email : </div>
             <input
               value={data.email}
               disabled
-              className="w-1/2 rounded-xl bg-red-200 p-2"
+              className="w-3/4 rounded-xl bg-red-200 p-2 text-center"
             />
           </div>
           <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
-            <div className="my-auto w-1/2">Active : </div>
+            <div className="my-auto w-1/4 ">Active : </div>
             {data.active ? (
               <CheckCircleIcon className="mx-auto  my-auto h-7 w-7 text-green-600" />
             ) : (
@@ -113,7 +113,7 @@ export default function Profile() {
             )}
           </div>
           <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
-            <div className="my-auto w-1/2">Stats : </div>
+            <div className="my-auto w-1/4 ">Stats : </div>
             {data.stats ? (
               <CheckCircleIcon className="mx-auto  my-auto h-7 w-7 text-green-600" />
             ) : (
@@ -121,22 +121,14 @@ export default function Profile() {
             )}
           </div>
           <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
-            <div className="my-auto w-1/2">Joined On : </div>
+            <div className="my-auto w-1/4 ">Joined On : </div>
             <input
               disabled
               type="date"
               value={data.joined.split('T')[0]}
-              className="my-auto w-1/2 rounded-xl bg-red-200 p-2"
+              className="my-auto w-3/4 rounded-xl bg-red-200 p-2 text-center"
             />
           </div>
-          {/* <div className="mx-auto mt-2 w-full rounded-xl p-2 text-center shadow-sm md:w-2/3">
-            <button
-              className="mx-auto w-fit rounded-sm border-2  border-white bg-red-700 px-2 py-1 text-white shadow-lg hover:border-red-700 hover:bg-white hover:text-red-700"
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
-          </div> */}
           <ConfirmModal handleDelete={handleDelete} />
         </div>
       </div>
