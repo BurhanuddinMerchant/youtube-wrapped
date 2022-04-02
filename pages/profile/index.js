@@ -11,6 +11,7 @@ import axiosApiInstance from '../../utils/axiosConfig'
 import Logout from '../../utils/Logout'
 export default function Profile() {
   const router = useRouter()
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState({
     username: '',
     email: '',
@@ -43,12 +44,16 @@ export default function Profile() {
   }, [])
   const handleDelete = async () => {
     try {
+      setLoading(true)
       let del_resp = await axiosApiInstance.delete(
         `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/profile`
       )
+      setLoading(false)
       Logout()
       router.push('/')
-    } catch (e) {}
+    } catch (e) {
+      setLoading(false)
+    }
   }
   return (
     <>
@@ -129,7 +134,7 @@ export default function Profile() {
               className="my-auto w-3/4 rounded-xl bg-red-200 p-2 text-center"
             />
           </div>
-          <ConfirmModal handleDelete={handleDelete} />
+          <ConfirmModal handleDelete={handleDelete} loading={loading} />
         </div>
       </div>
     </>

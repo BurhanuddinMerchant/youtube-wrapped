@@ -1,7 +1,7 @@
 import { InformationCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 export default function ConfirmModal(props) {
-  const { handleDelete } = props
+  const { handleDelete, loading } = props
   const [showModal, setShowModal] = useState(false)
   return (
     <>
@@ -45,13 +45,22 @@ export default function ConfirmModal(props) {
                   >
                     No
                   </button>
-                  <button
-                    className="background-transparent mr-1 mb-1 rounded-full border-2 border-green-600 px-3 py-1 text-sm font-bold uppercase text-green-500 outline-none transition-all duration-150 ease-linear hover:bg-green-600 hover:text-white focus:outline-none"
-                    type="button"
-                    onClick={handleDelete}
-                  >
-                    Yes
-                  </button>
+                  {loading ? (
+                    <button
+                      disabled
+                      className="background-transparent mr-1 mb-1 animate-bounce rounded-full border-2 border-green-600 bg-green-600 px-3 py-1 text-sm  font-bold uppercase text-white outline-none transition-all duration-150 ease-linear focus:outline-none"
+                    >
+                      Yes
+                    </button>
+                  ) : (
+                    <button
+                      className="background-transparent mr-1 mb-1 rounded-full border-2 border-green-600 px-3 py-1 text-sm font-bold uppercase text-green-500 outline-none transition-all duration-150 ease-linear hover:bg-green-600 hover:text-white focus:outline-none"
+                      type="button"
+                      onClick={handleDelete}
+                    >
+                      Yes
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
