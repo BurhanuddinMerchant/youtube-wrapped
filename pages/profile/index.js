@@ -230,6 +230,14 @@ export default function Profile() {
               )}
             </div>
             <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
+              <div className="my-auto w-1/4 ">Avatar : </div>
+              {data.stats ? (
+                <CheckCircleIcon className="mx-auto  my-auto h-7 w-7 text-green-600" />
+              ) : (
+                <XCircleIcon className="mx-auto my-auto h-7 w-7 text-red-600" />
+              )}
+            </div>
+            <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
               <div className="my-auto w-1/4 ">Joined On : </div>
               <input
                 disabled
