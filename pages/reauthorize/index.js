@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import useGoogle from '../../hooks/useGoogle'
 import youtubeSVG from '../../assets/images/youtube.svg'
+import Head from 'next/head'
+
 export default function Authorize() {
   const router = useRouter()
   useGoogle()
@@ -14,6 +16,14 @@ export default function Authorize() {
 
   return (
     <>
+      <Head>
+        <title>Reauthorize | Youtube Wrapped</title>
+        <meta
+          name="description"
+          content="A Website to generate your own Youtube Wrapped"
+        />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <div className="flex h-screen animate-pulse flex-col  justify-center bg-red-100">
         <Image src={youtubeSVG} className="mx-auto w-1/2" />
         <div className="mx-auto p-5 text-center text-sm font-medium">
