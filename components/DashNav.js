@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Logout from '../utils/Logout'
 export default function DashNav(props) {
-  const { username } = props
+  const { username, avatar } = props
   const handleSignOut = () => {
     Logout()
     router.push('/')
@@ -16,7 +16,9 @@ export default function DashNav(props) {
         onClick={() => router.push('/profile')}
       >
         <div className="h-10 w-10 rounded-full bg-white p-2">
-          <img src={`https://avatars.dicebear.com/api/human/${username}.svg`} />
+          <img
+            src={`https://avatars.dicebear.com/api/${avatar}/${username}.svg`}
+          />
         </div>
         <h2 className="my-auto ml-1 text-xl font-semibold text-red-400">
           {username}

@@ -12,7 +12,7 @@ export default function DashBoard() {
   const [statsAvailable, setStatsAvailable] = useState(false)
   const [isActiveUser, setIsActiveUser] = useState(false)
   const [userStats, setUserStats] = useState(null)
-  const [username, setUsername] = useState(null)
+  const [user, setUser] = useState({ username: '', avatar: 'human' })
   const [loading, setLoading] = useState(false)
   useEffect(async () => {
     setLoading(true)
@@ -23,7 +23,11 @@ export default function DashBoard() {
         let response = await axiosApiInstance.get(
           `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/profile/name`
         )
-        setUsername(response.data.data.username)
+        setUser({
+          ...user,
+          username: response.data.data.username,
+          avatar: response.data.data.avatar,
+        })
       } catch (e) {
         // console.log(e)
       }
@@ -73,7 +77,7 @@ export default function DashBoard() {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <DashNav username={username} />
+      <DashNav username={user.username} avatar={user.avatar} />
       {loading ? (
         <>
           <Loading />

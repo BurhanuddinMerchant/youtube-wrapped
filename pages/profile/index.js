@@ -15,7 +15,6 @@ import 'react-toastify/dist/ReactToastify.css'
 export default function Profile() {
   const errorToast = (message) => toast.error(message)
   const successToast = (message) => toast.success(message)
-
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [resetPassword, setResetPassword] = useState(false)
@@ -25,7 +24,9 @@ export default function Profile() {
     active: '',
     stats: '',
     joined: '',
+    avatar: 'human',
   })
+  const [avatar, setAvatar] = useState('human')
   const [formData, setFormData] = useState({
     old_password: '',
     new_password: '',
@@ -118,7 +119,7 @@ export default function Profile() {
           <div className=" flex w-fit rounded-full bg-gray-900 px-2 hover:cursor-pointer hover:bg-gray-800 sm:mx-0">
             <div className="h-10 w-10 rounded-full bg-red-50 p-2">
               <img
-                src={`https://avatars.dicebear.com/api/human/${data.username}.svg`}
+                src={`https://avatars.dicebear.com/api/${data.avatar}/${data.username}.svg`}
               />
             </div>
             <h2 className="my-auto ml-1 text-xl font-semibold text-red-400">
@@ -134,7 +135,7 @@ export default function Profile() {
           >
             <div className="mx-auto h-28 w-28 rounded-full bg-red-100">
               <img
-                src={`https://avatars.dicebear.com/api/human/${data.username}.svg`}
+                src={`https://avatars.dicebear.com/api/${data.avatar}/${data.username}.svg`}
               />
             </div>
             <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
@@ -194,7 +195,7 @@ export default function Profile() {
           <div className=" my-24 mx-auto w-full rounded-lg bg-white p-5 shadow-lg md:w-11/12 xl:w-1/2">
             <div className="mx-auto h-28 w-28 rounded-full bg-red-100">
               <img
-                src={`https://avatars.dicebear.com/api/human/${data.username}.svg`}
+                src={`https://avatars.dicebear.com/api/${data.avatar}/${data.username}.svg`}
               />
             </div>
             <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
@@ -231,11 +232,21 @@ export default function Profile() {
             </div>
             <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
               <div className="my-auto w-1/4 ">Avatar : </div>
-              {data.stats ? (
-                <CheckCircleIcon className="mx-auto  my-auto h-7 w-7 text-green-600" />
-              ) : (
-                <XCircleIcon className="mx-auto my-auto h-7 w-7 text-red-600" />
-              )}
+              <select
+                className="mx-auto w-3/4 rounded-xl bg-red-200 p-2 text-center text-lg"
+                value={data.avatar}
+                onChange={(e) => setData({ ...data, avatar: e.target.value })}
+              >
+                <option value="human" className=" cursor-pointer text-center">
+                  Human
+                </option>
+                <option value="male" className=" cursor-pointer text-center">
+                  Male
+                </option>
+                <option value="female" className=" cursor-pointer text-center">
+                  Female
+                </option>
+              </select>
             </div>
             <div className="mx-auto mt-2 flex w-full justify-between rounded-xl bg-red-50 p-2 shadow-sm md:w-2/3">
               <div className="my-auto w-1/4 ">Joined On : </div>
