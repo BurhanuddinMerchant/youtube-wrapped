@@ -96,6 +96,14 @@ export default function Profile() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
+  const handleAvatarChange = async (e) => {
+    setData({ ...data, avatar: e.target.value })
+    const resp = axiosApiInstance({
+      method: 'post',
+      url: `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/avatar`,
+      data: { avatar: e.target.value },
+    })
+  }
   return (
     <>
       <Head>
@@ -235,7 +243,7 @@ export default function Profile() {
               <select
                 className="mx-auto w-3/4 rounded-xl bg-red-200 p-2 text-center text-lg"
                 value={data.avatar}
-                onChange={(e) => setData({ ...data, avatar: e.target.value })}
+                onChange={handleAvatarChange}
               >
                 <option value="human" className=" cursor-pointer text-center">
                   Human
