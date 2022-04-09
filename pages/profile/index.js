@@ -49,6 +49,7 @@ export default function Profile() {
         active: profile.is_active,
         stats: profile.are_stats_generated,
         joined: profile.date_joined,
+        avatar: profile.avatar,
       })
     } catch (e) {
       console.log(e)
