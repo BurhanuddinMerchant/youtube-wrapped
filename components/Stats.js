@@ -10,10 +10,11 @@ import { getProcessedStats } from '../utils/stats/getProcessedStats'
 // import LineGraph from './LineGraph'
 
 export default function StatsSection(props) {
-  const { stats } = props
+  const { stats, setSharableData, user } = props
+  // console.log(user)
   const [processedData, setProcessedData] = useState(null)
   useEffect(() => {
-    setProcessedData({ ...getProcessedStats(stats) })
+    setProcessedData({ ...getProcessedStats(stats, setSharableData, user) })
     // console.log(getProcessedStats(stats))
   }, [])
   return (

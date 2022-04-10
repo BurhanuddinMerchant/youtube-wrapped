@@ -1,7 +1,8 @@
 import { getTotal } from './getTotal'
 import { getTopThreeFromDataObject } from './topThree'
 
-export const getProcessedStats = (stats) => {
+export const getProcessedStats = (stats, setSharableData, user) => {
+  // console.log(user)
   const processedData = {
     channelTitle: {
       liked: {},
@@ -112,5 +113,38 @@ export const getProcessedStats = (stats) => {
     )
   }
   processedData['duration'] = stats['duration']
+  // console.log(processedData)
+  let top_channels = []
+  let top_tags = []
+  let top_topics = []
+  for (let i = 0; i < 3; i++) {
+    if (processedData['tags']['liked'][i]['key'])
+      top_tags.push(processedData['tags']['liked'][i]['key'])
+    if (processedData['channelTitle']['liked'][i]['key']) {
+      let channel_name = processedData['channelTitle']['liked'][i]['key']
+      if (channel_name.length > 14) {
+        channel_name = channel_name.substring(0, 14)
+      }
+      top_channels.push(channel_name)
+    }
+    if (processedData['topic']['liked'][i]['key']) {
+      if (
+        processedData['topic']['liked'][i]['key'] === 'Lifestyle_(sociology)'
+      ) {
+        processedData['topic']['liked'][i]['key'] = 'Lifestyle'
+      }
+      top_topics.push(processedData['topic']['liked'][i]['key'])
+    }
+  }
+  setSharableData({
+    username: user.username.toUpperCase(),
+    most_viewed_topic: processedData['duration_per_topic']['liked'][0]['key'],
+    most_viewed_tag: processedData['tags']['liked'][0]['key'],
+    most_viewed_channel:
+      processedData['duration_per_channel']['liked'][0]['key'],
+    top_channels,
+    top_tags,
+    top_topics,
+  })
   return processedData
 }

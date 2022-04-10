@@ -14,6 +14,16 @@ export default function DashBoard() {
   const [userStats, setUserStats] = useState(null)
   const [user, setUser] = useState({ username: '', avatar: 'human' })
   const [loading, setLoading] = useState(false)
+  const [sharableData, setSharableData] = useState({
+    username: '',
+    most_viewed_topic: '',
+    most_viewed_tag: '',
+    most_viewed_channel: '',
+    top_channels: ['', '', ''],
+    top_tags: ['', '', ''],
+    top_topics: ['', '', ''],
+  })
+  console.log(user.username)
   useEffect(async () => {
     setLoading(true)
     if (!sessionStorage.getItem('access')) {
@@ -77,7 +87,11 @@ export default function DashBoard() {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <DashNav username={user.username} avatar={user.avatar} />
+      <DashNav
+        username={user.username}
+        avatar={user.avatar}
+        data={sharableData}
+      />
       {loading ? (
         <>
           <Loading />
@@ -86,7 +100,11 @@ export default function DashBoard() {
         // <>
         <>
           {statsAvailable && userStats ? (
-            <StatsSection stats={userStats} />
+            <StatsSection
+              stats={userStats}
+              setSharableData={setSharableData}
+              user={user}
+            />
           ) : (
             <>
               {!isActiveUser ? (
