@@ -1,60 +1,8 @@
-// import axiosApiInstance from '../../utils/axiosConfig'
+export default function Share(props) {
+  const { data, show } = props
 
-// export default function Share() {
-//   const getSharable = async () => {
-//     let resp = await axiosApiInstance(
-//       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/share`
-//     )
-//     console.log(resp.data.image)
-//     var a = document.createElement('a') //Create <a>
-//     a.href = 'data:image/png,base64,' + resp.data.image //Image Base64 Goes here
-//     a.download = 'wrapd.png' //File name Here
-//     a.click() //Downloaded file
-//   }
-//   return (
-//     <>
-//       <button
-//         onClick={getSharable}
-//         className=" mx-auto w-fit rounded-lg border-2 border-red-500 bg-red-500 p-2 text-white hover:bg-white hover:text-red-500"
-//       >
-//         Download
-//       </button>
-//     </>
-//   )
-// }
-import * as htmlToImage from 'html-to-image'
-import Head from 'next/head'
-import { useState } from 'react'
-export default function Share() {
-  const username = 'BURHANUDDIN'
-  const [show, setShow] = useState(false)
-  const printWrap = () => {
-    setShow(true)
-    setTimeout(
-      () =>
-        htmlToImage
-          .toPng(document.getElementById('body'), {
-            width: 1080,
-            height: 1920,
-            canvasWidth: 1080,
-            canvasHeight: 1920,
-          })
-          .then(function (dataUrl) {
-            //   download(dataUrl, 'my-node.png')
-            var a = document.createElement('a') //Create <a>
-            a.href = dataUrl //Image Base64 Goes here
-            a.download = 'wrapd.png' //File name Here
-            a.click() //Downloaded file
-          }),
-      1000
-    )
-    setTimeout(() => {
-      setShow(false)
-    }, 2000)
-  }
   return (
     <>
-      <Head></Head>
       {show ? (
         <div
           style={{ padding: 0, margin: 0, backgroundColor: 'black' }}
@@ -218,8 +166,8 @@ export default function Share() {
           <div
             id="top-channels"
             style={{
-              top: '965px',
-              left: '150px',
+              top: '960px',
+              left: '140px',
               position: 'absolute',
               fontSize: '36px',
               fontWeight: 'bold',
@@ -227,19 +175,19 @@ export default function Share() {
               fontFamily: 'Montserrat',
               fontWeight: '700',
               textAlign: 'left',
-              textAlign: 'center',
+              // textAlign: 'center',
               whiteSpace: 'nowrap',
             }}
           >
-            <div>#1 top_channel.0</div>
-            <div>#2 top_channel.1</div>
-            <div>#3 top_channel.2</div>
+            {data.top_channels.map((channel, index) => (
+              <div key={index}>{`#${index + 1} ${channel}`}</div>
+            ))}
           </div>
           <div
             id="top-tags"
             style={{
-              top: '965px',
-              left: '666px',
+              top: '960px',
+              left: '630px',
               position: 'absolute',
               fontSize: '36px',
               fontWeight: 'bold',
@@ -247,19 +195,19 @@ export default function Share() {
               fontFamily: 'Montserrat',
               fontWeight: '700',
               textAlign: 'left',
-              textAlign: 'center',
+              // textAlign: 'center',
               whiteSpace: 'nowrap',
             }}
           >
-            <div>#1 top_tag.0</div>
-            <div>#2 top_tag.1</div>
-            <div>#3 top_tag.2</div>
+            {data.top_tags.map((tag, index) => (
+              <div key={index}>{`#${index + 1} ${tag}`}</div>
+            ))}
           </div>
           <div
             id="top-topics"
             style={{
               top: '1260px',
-              left: '415px',
+              left: '375px',
               position: 'absolute',
               fontSize: '36px',
               fontWeight: 'bold',
@@ -267,13 +215,13 @@ export default function Share() {
               fontFamily: 'Montserrat',
               fontWeight: '700',
               textAlign: 'left',
-              textAlign: 'center',
+              // textAlign: 'center',
               whiteSpace: 'nowrap',
             }}
           >
-            <div>#1 top_topic.0</div>
-            <div>#2 top_topic.1</div>
-            <div>#3 top_topic.2</div>
+            {data.top_topics.map((topic, index) => (
+              <div key={index}>{`#${index + 1} ${topic}`}</div>
+            ))}
           </div>
           <div
             id="most-viewed-channel"
@@ -290,7 +238,7 @@ export default function Share() {
               textAlign: 'center',
             }}
           >
-            most_viewed_channel
+            {data.most_viewed_channel}
           </div>
           <div
             id="most-viewed-tag"
@@ -307,7 +255,7 @@ export default function Share() {
               textAlign: 'center',
             }}
           >
-            most_viewed_tag
+            {data.most_viewed_tag}
           </div>
           <div
             id="most-viewed-toipc"
@@ -324,7 +272,7 @@ export default function Share() {
               textAlign: 'center',
             }}
           >
-            most_viewed_topic
+            {data.most_viewed_topic}
           </div>
 
           <div
@@ -340,13 +288,12 @@ export default function Share() {
               textAlign: 'center',
             }}
           >
-            {`${username}'s`}
+            {`${data.username}'s`}
           </div>
         </div>
       ) : (
         ''
       )}
-      <button onClick={printWrap}>Print</button>
     </>
   )
 }
