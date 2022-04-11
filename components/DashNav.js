@@ -70,7 +70,10 @@ export default function DashNav(props) {
           >
             <Link href="/login">SignOut</Link>
           </button>
-          <LogoutIcon className="my-auto h-8 w-8 cursor-pointer text-red-400 hover:text-white sm:my-auto sm:hidden">
+          <LogoutIcon
+            className="my-auto h-8 w-8 cursor-pointer text-red-400 hover:text-white sm:my-auto sm:hidden"
+            onClick={handleSignOut}
+          >
             <Link href="/login">SignOut</Link>
           </LogoutIcon>
         </div>
