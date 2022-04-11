@@ -117,7 +117,7 @@ export const getProcessedStats = (stats, setSharableData, user) => {
   let top_channels = []
   let top_tags = []
   let top_topics = []
-  console.log(processedData)
+  // console.log(processedData)
   for (let i = 0; i < 3; i++) {
     if (
       processedData['tags']['liked'] &&
