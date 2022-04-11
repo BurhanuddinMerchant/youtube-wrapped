@@ -179,9 +179,11 @@ export default function Share(props) {
               whiteSpace: 'nowrap',
             }}
           >
-            {data.top_channels.map((channel, index) => (
-              <div key={index}>{`#${index + 1} ${channel}`}</div>
-            ))}
+            {data.top_channels.length !== 0
+              ? data.top_channels.map((channel, index) => (
+                  <div key={index}>{`#${index + 1} ${channel}`}</div>
+                ))
+              : '-'}
           </div>
           <div
             id="top-tags"
@@ -199,9 +201,11 @@ export default function Share(props) {
               whiteSpace: 'nowrap',
             }}
           >
-            {data.top_tags.map((tag, index) => (
-              <div key={index}>{`#${index + 1} ${tag}`}</div>
-            ))}
+            {data.top_tags.length !== 0
+              ? data.top_tags.map((tag, index) => (
+                  <div key={index}>{`#${index + 1} ${tag}`}</div>
+                ))
+              : '-'}
           </div>
           <div
             id="top-topics"
@@ -219,9 +223,11 @@ export default function Share(props) {
               whiteSpace: 'nowrap',
             }}
           >
-            {data.top_topics.map((topic, index) => (
-              <div key={index}>{`#${index + 1} ${topic}`}</div>
-            ))}
+            {data.top_topics.length !== 0
+              ? data.top_topics.map((topic, index) => (
+                  <div key={index}>{`#${index + 1} ${topic}`}</div>
+                ))
+              : '-'}
           </div>
           <div
             id="most-viewed-channel"
@@ -238,7 +244,7 @@ export default function Share(props) {
               textAlign: 'center',
             }}
           >
-            {data.most_viewed_channel}
+            {data.most_viewed_channel ? data.most_viewed_channel : '-'}
           </div>
           <div
             id="most-viewed-tag"
@@ -255,7 +261,7 @@ export default function Share(props) {
               textAlign: 'center',
             }}
           >
-            {data.most_viewed_tag}
+            {data.most_viewed_tag ? data.most_viewed_tag : '-'}
           </div>
           <div
             id="most-viewed-toipc"
@@ -272,7 +278,7 @@ export default function Share(props) {
               textAlign: 'center',
             }}
           >
-            {data.most_viewed_topic}
+            {data.most_viewed_topic ? data.most_viewed_topic : '-'}
           </div>
 
           <div

@@ -23,7 +23,7 @@ export default function DashBoard() {
     top_tags: ['', '', ''],
     top_topics: ['', '', ''],
   })
-  console.log(user.username)
+  // console.log(user.username)
   useEffect(async () => {
     setLoading(true)
     if (!sessionStorage.getItem('access')) {
