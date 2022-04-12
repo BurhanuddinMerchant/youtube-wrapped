@@ -131,8 +131,8 @@ export const getProcessedStats = (stats, setSharableData, user) => {
       processedData['channelTitle']['liked'][i]['key']
     ) {
       let channel_name = processedData['channelTitle']['liked'][i]['key']
-      if (channel_name.length > 14) {
-        channel_name = channel_name.substring(0, 14)
+      if (channel_name.length > 13) {
+        channel_name = channel_name.substring(0, 13)
       }
       top_channels.push(channel_name)
     }
