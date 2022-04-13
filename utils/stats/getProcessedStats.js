@@ -123,8 +123,13 @@ export const getProcessedStats = (stats, setSharableData, user) => {
       processedData['tags']['liked'] &&
       processedData['tags']['liked'][i] &&
       processedData['tags']['liked'][i]['key']
-    )
-      top_tags.push(processedData['tags']['liked'][i]['key'])
+    ) {
+      let tag_name = processedData['tags']['liked'][i]['key']
+      if (tag_name > 13) {
+        tag_name = tag_name.substring(0, 11) + '...'
+      }
+      top_tags.push(tag_name)
+    }
     if (
       processedData['channelTitle']['liked'] &&
       processedData['channelTitle']['liked'][i] &&
@@ -132,7 +137,7 @@ export const getProcessedStats = (stats, setSharableData, user) => {
     ) {
       let channel_name = processedData['channelTitle']['liked'][i]['key']
       if (channel_name.length > 13) {
-        channel_name = channel_name.substring(0, 13)
+        channel_name = channel_name.substring(0, 11) + '...'
       }
       top_channels.push(channel_name)
     }
@@ -141,12 +146,14 @@ export const getProcessedStats = (stats, setSharableData, user) => {
       processedData['topic']['liked'][i] &&
       processedData['topic']['liked'][i]['key']
     ) {
-      if (
-        processedData['topic']['liked'][i]['key'] === 'Lifestyle_(sociology)'
-      ) {
-        processedData['topic']['liked'][i]['key'] = 'Lifestyle'
+      let topic_name = processedData['topic']['liked'][i]['key']
+      if (topic_name === 'Lifestyle_(sociology)') {
+        topic_name = 'Lifestyle'
       }
-      top_topics.push(processedData['topic']['liked'][i]['key'])
+      if (topic_name.length > 13) {
+        topic_name = topic_name.substring(0, 11) + '...'
+      }
+      top_topics.push(topic_name)
     }
   }
   let most_viewed_channel, most_viewed_tag, most_viewed_topic
@@ -156,6 +163,9 @@ export const getProcessedStats = (stats, setSharableData, user) => {
     processedData['duration_per_topic']['liked'][0]['key']
   ) {
     most_viewed_topic = processedData['duration_per_topic']['liked'][0]['key']
+    if (most_viewed_topic.length > 16) {
+      most_viewed_topic = most_viewed_topic.substring(0, 16) + '...'
+    }
   }
   if (
     processedData['duration_per_channel']['liked'] &&
@@ -164,6 +174,9 @@ export const getProcessedStats = (stats, setSharableData, user) => {
   ) {
     most_viewed_channel =
       processedData['duration_per_channel']['liked'][0]['key']
+    if (most_viewed_channel.length > 16) {
+      most_viewed_channel = most_viewed_channel.substring(0, 16) + '...'
+    }
   }
   if (
     processedData['tags']['liked'] &&
@@ -171,6 +184,9 @@ export const getProcessedStats = (stats, setSharableData, user) => {
     processedData['tags']['liked'][0]['key']
   ) {
     most_viewed_tag = processedData['tags']['liked'][0]['key']
+    if (most_viewed_tag.length > 16) {
+      most_viewed_tag = most_viewed_tag.substring(0, 16) + '...'
+    }
   }
   setSharableData({
     username: user.username.toUpperCase(),
