@@ -167,7 +167,7 @@ export default function Share(props) {
             id="top-channels"
             style={{
               top: '870px',
-              left: '100px',
+              left: '80px',
               position: 'absolute',
               fontSize: '36px',
               fontWeight: 'bold',
@@ -177,10 +177,10 @@ export default function Share(props) {
               textAlign: 'left',
               // textAlign: 'center',
               whiteSpace: 'nowrap',
-              width: '415px',
+              width: '420px',
               height: '260px',
             }}
-            className=" rounded-3xl border-8 border-red-300 bg-red-50 p-4 "
+            className=" rounded-3xl border-[10px] border-red-300 bg-red-50 p-4 "
           >
             <div className=" mx-auto w-fit text-red-500">
               Top Liked Channels
@@ -195,7 +195,7 @@ export default function Share(props) {
             id="top-tags"
             style={{
               top: '870px',
-              left: '585px',
+              left: '580px',
               position: 'absolute',
               fontSize: '36px',
               fontWeight: 'bold',
@@ -205,10 +205,10 @@ export default function Share(props) {
               textAlign: 'left',
               // textAlign: 'center',
               whiteSpace: 'nowrap',
-              width: '415px',
+              width: '420px',
               height: '260px',
             }}
-            className=" rounded-3xl border-8 border-red-300 bg-red-50 p-4 "
+            className=" rounded-3xl border-[10px] border-red-300 bg-red-50 p-4 "
           >
             <div className=" mx-auto w-fit text-red-500">Top Liked Tags</div>
             {data.top_tags.length !== 0
@@ -221,7 +221,7 @@ export default function Share(props) {
             id="top-topics"
             style={{
               top: '1170px',
-              left: '335px',
+              left: '330px',
               position: 'absolute',
               fontSize: '36px',
               fontWeight: 'bold',
@@ -231,10 +231,10 @@ export default function Share(props) {
               textAlign: 'left',
               // textAlign: 'center',
               whiteSpace: 'nowrap',
-              width: '415px',
+              width: '420px',
               height: '260px',
             }}
-            className=" rounded-3xl border-8 border-red-300 bg-red-50 p-4 "
+            className=" rounded-3xl border-[10px] border-red-300 bg-red-50 p-4 "
           >
             <div className=" mx-auto w-fit text-red-500">Top Liked Topics</div>
 

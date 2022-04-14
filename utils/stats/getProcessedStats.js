@@ -126,7 +126,7 @@ export const getProcessedStats = (stats, setSharableData, user) => {
     ) {
       let tag_name = processedData['tags']['liked'][i]['key']
       if (tag_name > 13) {
-        tag_name = tag_name.substring(0, 11) + '...'
+        tag_name = tag_name.substring(0, 12) + '...'
       }
       top_tags.push(tag_name)
     }
@@ -137,7 +137,7 @@ export const getProcessedStats = (stats, setSharableData, user) => {
     ) {
       let channel_name = processedData['channelTitle']['liked'][i]['key']
       if (channel_name.length > 13) {
-        channel_name = channel_name.substring(0, 11) + '...'
+        channel_name = channel_name.substring(0, 12) + '...'
       }
       top_channels.push(channel_name)
     }
@@ -151,7 +151,7 @@ export const getProcessedStats = (stats, setSharableData, user) => {
         topic_name = 'Lifestyle'
       }
       if (topic_name.length > 13) {
-        topic_name = topic_name.substring(0, 11) + '...'
+        topic_name = topic_name.substring(0, 12) + '...'
       }
       top_topics.push(topic_name)
     }
