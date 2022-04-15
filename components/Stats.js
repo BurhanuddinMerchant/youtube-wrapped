@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import BarGraph from './BarGraph'
 import ComparisonCard from './ComparisonCard'
 import TopThreeCard from './TopThreeCard'
-import GraphIcon from '../assets/images/graph.png'
+// import GraphIcon from '../assets/images/graph.png'
 import { ExclamationIcon } from '@heroicons/react/solid'
 import PieChart from './PieChart'
 import ScrollButton from './ScrollUp'
@@ -77,7 +77,7 @@ export default function StatsSection(props) {
       <hr />
       <div>
         <div className="mt-7 flex justify-center ">
-          <img src={GraphIcon.src} className="w-16" alt="graph" />
+          {/* <img src={GraphIcon.src} className="w-16" alt="graph" /> */}
           <h1 className=" my-auto ml-2 text-5xl font-medium">Data Graphs</h1>
         </div>
         <div className="m-10 w-fit  rounded-md bg-red-100 p-10 text-center shadow-md md:hidden">

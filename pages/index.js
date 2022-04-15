@@ -46,7 +46,7 @@ export default function Home() {
           onClick={() => setShowChatBox(false)}
         >
           <Fade top>
-            <h1 className="mx-auto my-10 w-fit text-center text-3xl font-bold text-red-600 sm:text-6xl">
+            <h1 className="mx-auto my-10 w-fit text-center text-3xl font-bold text-red-600 sm:text-5xl">
               Welcome To Youtube Wrapped
             </h1>
           </Fade>
@@ -72,7 +72,7 @@ export default function Home() {
             />
           ) : (
             <div
-              className="h-20 w-20 cursor-pointer rounded-full bg-red-500 p-2 hover:bg-red-400"
+              className="h-14 w-14 cursor-pointer rounded-full bg-red-500 p-2 hover:bg-red-400"
               onClick={() => setShowChatBox(true)}
             >
               <img src={ChatBotIcon.src} alt="chatbot" />
