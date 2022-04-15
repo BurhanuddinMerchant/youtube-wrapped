@@ -7,7 +7,7 @@ export default function ConfirmModal(props) {
     <>
       <div className="mx-auto mt-2 w-full rounded-xl p-2 text-center shadow-sm md:w-2/3">
         <button
-          className="mx-auto w-fit rounded-md border-2  border-white bg-red-700 px-2 py-1 text-white hover:border-red-700 hover:bg-white hover:text-red-700 hover:shadow-lg"
+          className="mx-auto w-fit rounded-md border-2  border-white bg-red-500 px-2 py-1 text-white hover:border-red-500 hover:bg-white hover:text-red-500 hover:shadow-lg"
           onClick={() => setShowModal(true)}
         >
           Delete

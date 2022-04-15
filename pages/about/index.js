@@ -155,7 +155,7 @@ export default function About() {
                     href="https://en.wikipedia.org/wiki/Extract,_transform,_load"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-yellow-700"
+                    className="font-medium text-yellow-700"
                   >
                     ETL{' '}
                   </a>
