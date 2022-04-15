@@ -83,7 +83,7 @@ export default function Unwrapped(props) {
           target="_blank"
           rel="noreferrer"
         >
-          <p className="mx-auto my-auto mr-1 w-fit ">Privacy Plicy</p>
+          <p className="mx-auto my-auto mr-1 w-fit ">Privacy Policy</p>
           <ArrowCircleRightIcon className="my-auto mx-auto h-5 w-5" />
         </a>
       </div>
