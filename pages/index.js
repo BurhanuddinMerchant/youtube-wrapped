@@ -11,6 +11,7 @@ import ActionProvider from '../utils/chatbot/ActionProvider'
 import ChatBotIcon from '../assets/images/chatbot.png'
 import { useState } from 'react'
 import useAnalytics from '../hooks/useAnalytics'
+import HomeImage from '../assets/images/home.png'
 export default function Home() {
   const [showChatBot, setShowChatBox] = useState(false)
   useAnalytics()
@@ -39,15 +40,15 @@ export default function Home() {
         data-y_margin="20"
         async={true}
       ></script>
-      <div className="box-border h-screen w-full bg-red-100">
+      <div className="box-border min-h-screen w-full bg-red-100">
         <NavBar active={{ home: true }} />
         <div
           className="mx-auto rounded-lg bg-red-100 p-5 sm:w-1/2"
           onClick={() => setShowChatBox(false)}
         >
           <Fade top>
-            <h1 className="mx-auto my-10 w-fit text-center text-3xl font-bold text-red-600 sm:text-5xl">
-              Welcome To Youtube Wrapped
+            <h1 className="mx-auto my-10 w-fit text-center text-3xl font-bold text-red-600 sm:text-6xl">
+              YOUTUBEWRAPPED
             </h1>
           </Fade>
           <Zoom>
@@ -72,7 +73,7 @@ export default function Home() {
             />
           ) : (
             <div
-              className="h-14 w-14 cursor-pointer rounded-full bg-red-500 p-2 hover:bg-red-400"
+              className="h-14 w-14 cursor-pointer rounded-full bg-red-500 p-2 shadow-2xl hover:bg-red-400"
               onClick={() => setShowChatBox(true)}
             >
               <img src={ChatBotIcon.src} alt="chatbot" />
