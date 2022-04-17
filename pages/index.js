@@ -12,6 +12,8 @@ import ChatBotIcon from '../assets/images/chatbot.png'
 import { useState } from 'react'
 import useAnalytics from '../hooks/useAnalytics'
 import HomeImage from '../assets/images/home.png'
+import Typewriter from 'typewriter-effect'
+
 export default function Home() {
   const [showChatBot, setShowChatBox] = useState(false)
   useAnalytics()
@@ -48,7 +50,22 @@ export default function Home() {
         >
           <Fade top>
             <h1 className="mx-auto my-10 w-fit text-center text-3xl font-bold text-red-600 sm:text-6xl">
-              YOUTUBEWRAPPED
+              {/* YOUTUBEWRAPPED */}
+              <Typewriter
+                onInit={(typewriter) => {
+                  typewriter
+
+                    .typeString('LIKED')
+
+                    .pauseFor(1000)
+                    .deleteAll()
+                    .typeString('DISLIKED')
+                    .pauseFor(1000)
+                    .deleteAll()
+                    .typeString('YOUTUBEWRAPPED')
+                    .start()
+                }}
+              />
             </h1>
           </Fade>
           <Zoom>
