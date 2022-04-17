@@ -81,107 +81,106 @@ export default function About() {
               </div>
             </Fade>
             <hr className="mt-5" />
-            <Fade left>
-              <div className="mx-auto mt-5 w-fit text-center text-3xl font-medium text-red-700 sm:text-4xl ">
-                About Me
-              </div>
-            </Fade>
-            <Fade right>
-              <img src={meSVG.src} alt="about me" className=" mx-auto mt-10" />
-            </Fade>
-            <Fade left>
-              <div className="mt-10 text-center text-lg">
-                <p className="text-left">
-                  I am
-                  <a
-                    href="https://burhanuddinmerchant.ml"
-                    target="_blank"
-                    className="ml-2 font-medium text-red-600"
-                    rel="noreferrer"
-                  >
-                    Burhanuddin Merchant
-                  </a>
-                  , an Engineering Undergrad, majoring in Computer Engineering.
-                  I produce
-                  <a
-                    href="https://www.instagram.com/musicbyburza/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <MusicNoteIcon className="mx-1 inline h-5 w-5 animate-bounce cursor-pointer text-purple-500 hover:text-slate-400" />
-                  </a>
-                  and write
-                  <a
-                    href="https://burhanuddinmerchant.ml"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <CodeIcon className="mx-1 inline h-5 w-5 animate-bounce cursor-pointer text-blue-500 hover:text-slate-400" />
-                  </a>
-                  sometimes. I love collab ...blah blah. I love building real
-                  world .... blah blah blah.
-                </p>
-                <p className="mt-2 text-left">
-                  For those of you interested in the blah blah blahs, please
-                  visit
-                  <a
-                    href="https://burhanuddinmerchant.ml"
-                    target="_blank"
-                    className="ml-2 animate-pulse cursor-pointer font-medium text-red-600"
-                    rel="noreferrer"
-                  >
-                    burhanuddinmerchant.ml
-                  </a>
-                </p>
-              </div>
-            </Fade>
+            {/* <Fade left> */}
+            <div className="mx-auto mt-5 w-fit text-center text-3xl font-medium text-red-700 sm:text-4xl ">
+              About Me
+            </div>
+            {/* </Fade> */}
+            {/* <Fade right> */}
+            <img src={meSVG.src} alt="about me" className=" mx-auto mt-10" />
+            {/* </Fade> */}
+            {/* <Fade left> */}
+            <div className="mt-10 text-center text-lg">
+              <p className="text-left">
+                I am
+                <a
+                  href="https://burhanuddinmerchant.ml"
+                  target="_blank"
+                  className="ml-2 font-medium text-red-600"
+                  rel="noreferrer"
+                >
+                  Burhanuddin Merchant
+                </a>
+                , an Engineering Undergrad, majoring in Computer Engineering. I
+                produce
+                <a
+                  href="https://www.instagram.com/musicbyburza/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <MusicNoteIcon className="mx-1 inline h-5 w-5 animate-bounce cursor-pointer text-purple-500 hover:text-slate-400" />
+                </a>
+                and write
+                <a
+                  href="https://burhanuddinmerchant.ml"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <CodeIcon className="mx-1 inline h-5 w-5 animate-bounce cursor-pointer text-blue-500 hover:text-slate-400" />
+                </a>
+                sometimes. I love collab ...blah blah. I love building real
+                world .... blah blah blah.
+              </p>
+              <p className="mt-2 text-left">
+                For those of you interested in the blah blah blahs, please visit
+                <a
+                  href="https://burhanuddinmerchant.ml"
+                  target="_blank"
+                  className="ml-2 animate-pulse cursor-pointer font-medium text-red-600"
+                  rel="noreferrer"
+                >
+                  burhanuddinmerchant.ml
+                </a>
+              </p>
+            </div>
+            {/* </Fade> */}
             <hr className="mt-5" />
-            <Fade right>
-              <div className="mx-auto mt-5 w-fit text-center text-3xl font-medium text-red-700 sm:text-4xl">
-                About The Project
-              </div>
-            </Fade>
-            <Fade left>
-              <img
-                src={projectSVG.src}
-                alt="about project"
-                className=" mx-auto mt-10"
-              />
+            {/* <Fade right> */}
+            <div className="mx-auto mt-5 w-fit text-center text-3xl font-medium text-red-700 sm:text-4xl">
+              About The Project
+            </div>
+            {/* </Fade> */}
+            {/* <Fade left> */}
+            <img
+              src={projectSVG.src}
+              alt="about project"
+              className=" mx-auto mt-10"
+            />
 
-              <div className="mt-10 text-center text-lg">
-                <p className="text-left">
-                  This is a Full Stack Web Application built around an{' '}
-                  <a
-                    href="https://en.wikipedia.org/wiki/Extract,_transform,_load"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-medium text-yellow-700"
-                  >
-                    ETL{' '}
-                  </a>
-                  data pipeline.
-                </p>
-                <p className="mt-2 text-left">
-                  I wanted to set up an ETL Data-Pipeline from a very long time,
-                  and also improve upon my Front-End development skills (UI and
-                  Design), and at the same time wanted to do something related
-                  to Cloud and DevOps, so when I randomly came up with a
-                  meaningful and fun problem statement, all of the desires
-                  listed above just fell into place, and I started working on
-                  what you are seeing right now.
-                </p>
-                <hr className="mt-5" />
-                <p className="mt-5">
-                  So what are you waiting for ?
-                  <Link href="/login">
-                    <button className="mx-2 animate-pulse cursor-pointer rounded-lg border-2 border-red-600 bg-red-600 px-1 font-medium text-white hover:bg-white hover:text-black">
-                      Click Here
-                    </button>
-                  </Link>
-                  and Get Your Wrap Right Now!
-                </p>
-              </div>
-            </Fade>
+            <div className="mt-10 text-center text-lg">
+              <p className="text-left">
+                This is a Full Stack Web Application built around an{' '}
+                <a
+                  href="https://en.wikipedia.org/wiki/Extract,_transform,_load"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-yellow-700"
+                >
+                  ETL{' '}
+                </a>
+                data pipeline.
+              </p>
+              <p className="mt-2 text-left">
+                I wanted to set up an ETL Data-Pipeline from a very long time,
+                and also improve upon my Front-End development skills (UI and
+                Design), and at the same time wanted to do something related to
+                Cloud and DevOps, so when I randomly came up with a meaningful
+                and fun problem statement, all of the desires listed above just
+                fell into place, and I started working on what you are seeing
+                right now.
+              </p>
+              <hr className="mt-5" />
+              <p className="mt-5">
+                So what are you waiting for ?
+                <Link href="/login">
+                  <button className="mx-2 animate-pulse cursor-pointer rounded-lg border-2 border-red-600 bg-red-600 px-1 font-medium text-white hover:bg-white hover:text-black">
+                    Click Here
+                  </button>
+                </Link>
+                and Get Your Wrap Right Now!
+              </p>
+            </div>
+            {/* </Fade> */}
           </div>
         </Zoom>
       </div>
