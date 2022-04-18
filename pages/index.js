@@ -55,14 +55,14 @@ export default function Home() {
                 onInit={(typewriter) => {
                   typewriter
 
-                    .typeString('LIKED')
+                    .typeString('LIKED ')
 
                     .pauseFor(1000)
                     .deleteAll()
-                    .typeString('DISLIKED')
+                    .typeString('DISLIKED ')
                     .pauseFor(1000)
                     .deleteAll()
-                    .typeString('YOUTUBEWRAPPED')
+                    .typeString('YOUTUBEWRAPPED ')
                     .start()
                 }}
               />
