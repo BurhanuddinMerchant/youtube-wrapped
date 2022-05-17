@@ -5,6 +5,7 @@ import Fade from 'react-reveal/Fade'
 import aboutSVG from '../../assets/images/about.svg'
 import meSVG from '../../assets/images/me.svg'
 import projectSVG from '../../assets/images/project.svg'
+import github from '../../assets/images/github.png'
 import { CodeIcon, MusicNoteIcon } from '@heroicons/react/solid'
 import NavBar from '../../components/Navbar'
 import ScrollButton from '../../components/ScrollUp'
@@ -168,6 +169,43 @@ export default function About() {
                 and fun problem statement, all of the desires listed above just
                 fell into place, and I started working on what you are seeing
                 right now.
+              </p>
+              <p className="mx-auto mt-2 w-fit text-left">
+                Access the code and Architecture here :
+                <p className="mt-2">
+                  <p>
+                    <a
+                      href="https://github.com/BurhanuddinMerchant/youtube-wrapped-server"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex justify-center text-xl font-bold hover:text-red-800"
+                    >
+                      <img src={github.src} className="mr-2 inline w-7" />
+                      /Backend Repo
+                    </a>
+                  </p>
+                  <p className="mt-2">
+                    <a
+                      href="https://github.com/BurhanuddinMerchant/youtube-wrapped"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex justify-center text-xl font-bold hover:text-red-800"
+                    >
+                      <img src={github.src} className="mr-2 inline w-7" />
+                      /Frontend Repo
+                    </a>
+                  </p>
+                  <p className="mt-2">
+                    <a
+                      href="https://youtubewrapped.ml/architecture"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex justify-center text-xl font-bold hover:text-red-800"
+                    >
+                      System Architecture
+                    </a>
+                  </p>
+                </p>
               </p>
               <hr className="mt-5" />
               <p className="mt-5">
