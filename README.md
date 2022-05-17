@@ -4,6 +4,8 @@
 
 #### The frontend is built using [NEXTJS](https://nextjs.org/) and Styled using [Tailwind CSS](https://tailwindcss.com/)
 
+#### I have made a step by step explainer video for generating your own wrapped , access it [here](https://www.youtube.com/watch?v=V7JnDTsLDbk)
+
 Here are a few samples of How the UI looks like:
 
 <hr/>
