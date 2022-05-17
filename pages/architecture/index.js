@@ -12,7 +12,10 @@ export default function Authorize() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <div className="justify-center bg-red-100">
-        <img src={arch.src} />
+        <iframe
+          src="https://drive.google.com/file/d/1ovPc2oxfnZSId4gWc7TESxGVk2ZHTo5k/preview"
+          className="h-screen w-full"
+        ></iframe>
       </div>
     </>
   )
