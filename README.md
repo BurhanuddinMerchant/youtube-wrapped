@@ -7,6 +7,7 @@
 Here are a few samples of How the UI looks like:
 
 <hr/>
+
 ![Wrapped](https://github.com/BurhanuddinMerchant/youtube-wrapped/blob/main/readme_assets/wrapd.png?raw=true)
 
 ![Landing](https://github.com/BurhanuddinMerchant/youtube-wrapped/blob/main/readme_assets/landing.png?raw=true)
