@@ -52,7 +52,7 @@ export default function Unwrapped(props) {
             <div className="text-center">
               It Seems like You have not yet applied to generate your wrap,
               click below to UnWrap. Please Note it may take upto 30s for the
-              data to load. Just reload incase the stats don't show up
+              data to load. Just reload incase the stats do not show up
               automatically after unwrapping.
             </div>
             <ConditionalButton
